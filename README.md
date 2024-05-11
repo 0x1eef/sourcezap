@@ -13,26 +13,26 @@ can be installed into `/usr/src/` by root.
 This command should be run after installing srczap for
 the first time:
 
-    # Add the srczap user, group and home directory.
-    # This command requires root privileges.
+    # Add the srczap user, group and home directory
+    # This command requires root privileges
     # setup-srczap
 
 ### CLI: srczap
 
-    # Clone the HardenedBSD source tree into /home/_srczap/src/.
-    # This command is delegated to the '_srczap' user.
+    # Clone the HardenedBSD source tree into /home/_srczap/src/
+    # This command is delegated to the '_srczap' user
     $ srczap clone
 
-    # Pull updates into /home/_srczap/src/.
-    # This command is delegated to the '_srczap' user.
+    # Pull updates into /home/_srczap/src/
+    # This command is delegated to the '_srczap' user
     $ srczap pull
 
-    # Install /home/_srczap/src/ into /usr/src/.
-    # This command requires root privileges.
+    # Install /home/_srczap/src/ into /usr/src/
+    # This command requires root privileges
     # srczap install
 
-    # Start over: erase /usr/src/ and /home/_srczap/src/.
-    # This command requires root privileges.
+    # Start over: erase /usr/src/ and /home/_srczap/src/
+    # This command requires root privileges
     $ srczap erase
 
 
