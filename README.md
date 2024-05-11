@@ -13,7 +13,7 @@ can be installed into `/usr/src/` by root.
 This command should be run after installing srczap for
 the first time:
 
-    # Add the srczap user, group and home directory
+    # Add the '_srczap' user, group and home directory
     # This command requires root privileges
     # setup-srczap
 
