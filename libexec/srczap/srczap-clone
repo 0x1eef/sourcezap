@@ -22,13 +22,13 @@ gitexec()
 ##
 # main
 if ! "${libexec}"/issrczap-member; then
-    echo "[-] This command must be run by a member of the '_srczap' group"
+    echo "[x] This command must be run by a member of the '_srczap' group"
     exit 1
 fi
 
 if [ -e "${gitdir}/.git" ]; then
-    echo "[-] ${gitdir} exists."
-    echo "[-] Try 'srczap pull'"
+    echo "[x] ${gitdir} exists."
+    echo "[x] Try 'srczap pull'"
     exit 1
 fi
 

@@ -26,7 +26,7 @@ while true; do
         printf "[-] Nothing to do\n"
         exit
     else
-        printf "[-] '%s' is not a valid option.\n" "${r}"
+        printf "[x] '%s' is not a valid option.\n" "${r}"
         printf "[y|n] "
     fi
 done

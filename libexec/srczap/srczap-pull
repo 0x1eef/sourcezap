@@ -28,7 +28,7 @@ change_branch()
     if ! gitexec "checkout ${branch} > /dev/null 2>&1" ||
          gitexec "checkout -t ${remote}/${branch} > /dev/null 2>&1"; then
         r="${?}"
-        echo "[-] 'git checkout' exited with an error"
+        echo "[x] 'git checkout' exited with an error"
         exit "${r}"
     else
         echo "[-] Done"
@@ -39,14 +39,14 @@ change_branch()
 ##
 # main
 if ! "${libexec}"/issrczap-member; then
-    echo "[-] This command must be run by a member of the '_srczap' group"
+    echo "[x] This command must be run by a member of the '_srczap' group"
     exit 1
 fi
 
 if [ ! -e "${gitdir}/.git" ]; then
     set +x
-    echo "[-] ${gitdir} is not a valid git repository."
-    echo "[-] Try 'srczap clone'"
+    echo "[x] ${gitdir} is not a valid git repository."
+    echo "[x] Try 'srczap clone'"
     exit 1
 fi
 
