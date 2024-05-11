@@ -57,8 +57,8 @@ case $1 in
         printf "Usage: srczap COMMAND [OPTIONS]\n"
         printf "\n"
         printf "Commands:\n"
-        printf "  clone    Clone the HardenedBSD source code\n"
-        printf "  pull     Pull source code updates\n"
+        printf "  clone    Clone the HardenedBSD source tree\n"
+        printf "  pull     Pull source tree updates\n"
         printf "  erase    Erase /usr/src/ and /home/_srczap/src/\n"
         printf "  install  Install the source tree into /usr/src/\n"
         ;;
