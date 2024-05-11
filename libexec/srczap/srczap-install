@@ -44,6 +44,12 @@ perform_install()
         -maxdepth 1 \
         ! -name "." \
         ! -name ".git" \
+        ! -name ".github" \
+        ! -name ".gitignore" \
+        ! -name ".gitattributes" \
+        ! -name ".git-blame-ignore-revs" \
+        ! -name ".cirrus-ci" \
+        ! -name ".cirrus.yml" \
         ! -name ".gitignore" \
         ! -name ".hooks" \
         ! -name ".arcconfig" \
@@ -60,7 +66,7 @@ run_install()
 ##
 # main
 if [ "$(id -u)" != "0" ]; then
-    echo "[-] This command must be run by root"
+    echo "[x] This command must be run by root"
     exit 1
 fi
 
