@@ -51,7 +51,7 @@ perform_install()
         ! -name ".cirrus-ci" \
         ! -name ".cirrus.yml" \
         ! -name ".gitignore" \
-        ! -name ".hooks" \
+        ! -name ".arclint" \
         ! -name ".arcconfig" \
         -exec cp -Rpv {} "${installdir}" \;
     set -x
