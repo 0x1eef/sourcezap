@@ -1,19 +1,19 @@
 ## About
 
-srczap manages a local copy of the
+sourcezap manages a local copy of the
 [HardenedBSD source tree](https://git.HardenedBSD.org/HardenedBSD/HardenedBSD).
 The copy of the source tree is maintained by members of
-the `_srczap` group, and a copy of the source tree
+the `_sourcezap` group, and a copy of the source tree
 can be installed into `/usr/src/` by root.
 
 ## Examples
 
-### CLI: setup-srczap
+### CLI: setup-sourcezap
 
-This command should be run after installing srczap for
+This command should be run after installing sourcezap for
 the first time:
 
-    # Add the '_srczap' user, group and home directory
+    # Add the '_sourcezap' user, group and home directory
     # This command requires root privileges
     # setup-sourcezap
 
