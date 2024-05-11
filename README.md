@@ -4,7 +4,7 @@ srczap manages a local copy of the
 [HardenedBSD source tree](https://git.hardenedbsd.org/hardenedbsd/HardenedBSD).
 The copy of the source tree is maintained by members of
 the `_srczap` group, and a copy of the source tree
-can be installed to `/usr/src/` by root.
+can be installed into `/usr/src/` by root.
 
 ## Examples
 
