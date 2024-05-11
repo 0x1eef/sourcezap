@@ -1,7 +1,7 @@
 ## About
 
 srczap manages a local copy of the
-[HardenedBSD source tree](https://git.hardenedbsd.org/hardenedbsd/HardenedBSD).
+[HardenedBSD source tree](https://git.HardenedBSD.org/HardenedBSD/HardenedBSD).
 The copy of the source tree is maintained by members of
 the `_srczap` group, and a copy of the source tree
 can be installed into `/usr/src/` by root.
@@ -41,7 +41,7 @@ the first time.
 
 * __$SRCZAP\_GITURL__ <br>
   The URL to a git repository.  <br>
-  Default: https://git.hardenedbsd.org/hardenedbsd/HardenedBSD.git.
+  Default: https://git.HardenedBSD.org/HardenedBSD/HardenedBSD.git.
 
 * __$SRCZAP\_BRANCH__ <br>
   The git branch to clone and pull updates from. <br>
@@ -73,7 +73,7 @@ via git:
 
 * [GitHub](https://github.com/0x1eef/srczap)
 * [GitLab](https://gitlab.com/0x1eef/srczap)
-* [git.hardenedbsd.org](https://git.hardenedbsd.org/0x1eef/srczap)
+* [git.HardenedBSD.org](https://git.HardenedBSD.org/0x1eef/srczap)
 
 ## License
 
