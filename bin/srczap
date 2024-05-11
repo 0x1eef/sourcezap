@@ -1,0 +1,64 @@
+#!/bin/sh -e
+
+##
+# variables
+localbase="${LOCALBASE:-/usr/local}"
+gitdir="/home/_srczap/src"
+giturl="${SRCZAP_GITURL:-https://git.hardenedbsd.org/hardenedbsd/HardenedBSD/}"
+branch="${SRCZAP_BRANCH:-hardened/14-stable/master}"
+installdir="${SRCZAP_INSTALLDIR:-/usr/src}"
+revision="${installdir}"/.srczap
+libexec="${localbase}"/libexec/srczap
+
+##
+# functions
+require_dependency() {
+    deps=$1
+    for dep in $deps; do
+        if ! which -s "$dep"; then
+            echo "[-] This command requires ${dep}, but ${dep} wasn't found"
+            exit 1
+        fi
+    done
+}
+
+##
+# main
+i=1
+while [ "${i}" -le "$#" ]; do
+    eval "_srczap_option=\$${i}"
+    # shellcheck disable=SC2154
+    if [ "${_srczap_option}" = "-v" ]; then
+        cat "${localbase}"/share/srczap/VERSION
+        exit 0
+    fi
+    # shellcheck disable=SC2003
+    i=$(expr "${i}" + 1);
+done
+
+case $1 in
+    "clone")
+        require_dependency "git doas"
+        "${libexec}"/srczap-clone "${giturl}" "${gitdir}" "${branch}"
+        ;;
+    "pull")
+        require_dependency "git doas"
+        "${libexec}"/srczap-pull "${gitdir}" "${branch}"
+        ;;
+    "erase")
+        "${libexec}"/srczap-erase "${gitdir}" "${installdir}"
+        ;;
+    "install")
+        require_dependency "git doas"
+        "${libexec}"/srczap-install "${gitdir}" "${installdir}" "${revision}"
+        ;;
+    *)
+        printf "Usage: srczap COMMAND [OPTIONS]\n"
+        printf "\n"
+        printf "Commands:\n"
+        printf "  clone    Clone the HardenedBSD source code\n"
+        printf "  pull     Pull source code updates\n"
+        printf "  erase    Erase /usr/src/ and /home/_srczap/src/\n"
+        printf "  install  Install the source tree into /usr/src/\n"
+        ;;
+esac

@@ -1,0 +1,41 @@
+#!/bin/sh -e
+
+##
+# variables
+localbase=${LOCALBASE:-/usr/local}
+libexec=$(dirname "$0")
+git="${localbase}"/bin/git
+giturl=$1
+gitdir=$2
+branch=$3
+mode=u=rwX,g=rX,o=
+
+##
+# functions
+gitexec()
+{
+    doas -n -u _srczap \
+         /bin/sh -c "umask ${mode}; ${git} ${1}"
+}
+
+##
+# main
+if ! "${libexec}"/issrczap-member; then
+    echo "[-] This command must be run by a member of the '_srczap' group"
+    exit 1
+fi
+
+if [ -e "${gitdir}/.git" ]; then
+    echo "[-] ${gitdir} exists."
+    echo "[-] Try 'srczap pull'"
+    exit 1
+fi
+
+set -x
+gitexec "clone ${giturl} ${gitdir}"
+cd "${gitdir}"
+gitexec "config core.filemode off"
+set +x
+echo "[-] git checkout ${branch}"
+gitexec "checkout -t origin/${branch} > /dev/null 2>&1"
+echo "[-] Done"

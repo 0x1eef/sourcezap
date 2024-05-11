@@ -1,0 +1,75 @@
+.Dd May 2023
+.Dt SRCZAP 8
+.Os
+.Sh NAME
+.Nm srczap
+.Nd manages a copy of the HardenedBSD source code
+.Sh SYNOPSIS
+.br
+srczap clone
+.br
+srczap pull
+.br
+srczap install
+.br
+srczap erase
+.Sh DESCRIPTION
+.Nm srczap
+manages a copy of the HardenedBSD source code.
+The copy of the source tree is maintained by members of
+the '_srczap' group, and a copy of the source tree
+can be installed to /usr/src/ by root.
+.Sh EXAMPLES
+.sp
+.sp
+.Nm srczap clone
+.br
+Clone the hardenedbsd ports tree into /home/_srczap/src/.
+.br
+This command is delegated to the '_srczap' user.
+.Pp
+.Nm srczap pull
+.br
+Pull updates into /home/_srczap/src/.
+.br
+This command is delegated to the '_srczap' user.
+.Pp
+.Nm srczap install
+.br
+Install /home/_srczap/src/ into /usr/src/.
+.br
+This command requires root privileges.
+.Pp
+.Nm srczap erase
+.br
+Start over: erase /usr/src/ and /home/_srczap/src/.
+.br
+This command requires root privileges.
+.br
+.Sh ENVIRONMENT
+.sp
+.sp
+.Nm SRCZAP_GITURL
+.br
+The URL to a git repository.
+.br
+Default: https://git.hardenedbsd.org/hardenedbsd/HardenedBSD/
+.sp
+.Nm SRCZAP_BRANCH
+.br
+The git branch to clone and pull updates from.
+.br
+Default: hardened/14-stable/master
+.br
+.sp
+.Nm SRCZAP_INSTALLDIR
+.br
+The directory where the ports collection will be installed.
+.br
+Default: /usr/src/
+.sp
+.Sh AUTHORS
+The
+.Nm srczap
+utility and this manual page were written by
+0x1eef <0x1eef@protonmail.com>.
