@@ -15,38 +15,38 @@ the first time:
 
     # Add the '_srczap' user, group and home directory
     # This command requires root privileges
-    # setup-srczap
+    # setup-sourcezap
 
-### CLI: srczap
+### CLI: sourcezap
 
-    # Clone the HardenedBSD source tree into /home/_srczap/src/
-    # This command is delegated to the '_srczap' user
-    $ srczap clone
+    # Clone the HardenedBSD source tree into /home/_sourcezap/src/
+    # This command is delegated to the '_sourcezap' user
+    $ sourcezap clone
 
-    # Pull updates into /home/_srczap/src/
-    # This command is delegated to the '_srczap' user
-    $ srczap pull
+    # Pull updates into /home/_sourcezap/src/
+    # This command is delegated to the '_sourcezap' user
+    $ sourcezap pull
 
-    # Install /home/_srczap/src/ into /usr/src/
+    # Install /home/_sourcezap/src/ into /usr/src/
     # This command requires root privileges
-    # srczap install
+    # sourcezap install
 
-    # Start over: erase /usr/src/ and /home/_srczap/src/
+    # Start over: erase /usr/src/ and /home/_sourcezap/src/
     # This command requires root privileges
-    $ srczap erase
+    $ sourcezap erase
 
 
 ### ENVIRONMENT
 
-* __$SRCZAP\_GITURL__ <br>
+* __$SOURCEZAP\_GITURL__ <br>
   The URL to a git repository.  <br>
   Default: https://git.HardenedBSD.org/HardenedBSD/HardenedBSD.git.
 
-* __$SRCZAP\_BRANCH__ <br>
+* __$SOURCEZAP\_BRANCH__ <br>
   The git branch to clone and pull updates from. <br>
   Default: hardened/14-stable/master.
 
-* __$SRCZAP\_INSTALLDIR__ <br>
+* __$SOURCEZAP\_INSTALLDIR__ <br>
   The directory where the source tree will be installed. <br>
   Default: /usr/src/.
 
@@ -54,14 +54,14 @@ the first time:
 
 **Source**
 
-The most recent version of srczap can be installed directly
+The most recent version of sourcezap can be installed directly
 via git:
 
-    $ git clone https://github.com/0x1eef/srczap.git
-    $ cd srczap
+    $ git clone https://github.com/0x1eef/sourcezap.git
+    $ cd sourcezap
     # make install
-    # setup-srczap
-    # pw groupmod -n _srczap -m <user>
+    # setup-sourcezap
+    # pw groupmod -n _sourcezap -m <user>
 
 ## Requirements
 
@@ -70,9 +70,9 @@ via git:
 
 ## Sources
 
-* [GitHub](https://github.com/0x1eef/srczap)
-* [GitLab](https://gitlab.com/0x1eef/srczap)
-* [git.HardenedBSD.org](https://git.HardenedBSD.org/0x1eef/srczap)
+* [GitHub](https://github.com/0x1eef/sourcezap)
+* [GitLab](https://gitlab.com/0x1eef/sourcezap)
+* [git.HardenedBSD.org](https://git.HardenedBSD.org/0x1eef/sourcezap)
 
 ## License
 

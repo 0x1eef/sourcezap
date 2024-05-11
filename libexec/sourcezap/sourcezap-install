@@ -60,7 +60,7 @@ perform_install()
 
 run_install()
 {
-    install -o root -g _srczap -m "${mode}" -v "$@"
+    install -o root -g _sourcezap -m "${mode}" -v "$@"
 }
 
 ##

@@ -15,20 +15,20 @@ mode=u=rwX,g=rX,o=
 # functions
 gitexec()
 {
-    doas -n -u _srczap \
+    doas -n -u _sourcezap \
          /bin/sh -c "umask ${mode}; ${git} ${1}"
 }
 
 ##
 # main
-if ! "${libexec}"/issrczap-member; then
-    echo "[x] This command must be run by a member of the '_srczap' group"
+if ! "${libexec}"/issourcezap-member; then
+    echo "[x] This command must be run by a member of the '_sourcezap' group"
     exit 1
 fi
 
 if [ -e "${gitdir}/.git" ]; then
     echo "[x] ${gitdir} exists."
-    echo "[x] Try 'srczap pull'"
+    echo "[x] Try 'sourcezap pull'"
     exit 1
 fi
 
