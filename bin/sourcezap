@@ -5,9 +5,9 @@ set -e
 # variables
 localbase="${LOCALBASE:-/usr/local}"
 gitdir="/home/_sourcezap/src"
-giturl="${SRCZAP_GITURL:-https://git.hardenedbsd.org/hardenedbsd/HardenedBSD.git}"
-branch="${SRCZAP_BRANCH:-hardened/14-stable/master}"
-installdir="${SRCZAP_INSTALLDIR:-/usr/src}"
+giturl="${SOURCEZAP_GITURL:-https://git.hardenedbsd.org/hardenedbsd/HardenedBSD.git}"
+branch="${SOURCEZAP_BRANCH:-hardened/14-stable/master}"
+installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
 revision="${installdir}"/.sourcezap
 libexec="${localbase}"/libexec/sourcezap
 
