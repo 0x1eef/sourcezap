@@ -36,7 +36,6 @@ set -x
 gitexec "clone ${giturl} ${gitdir}"
 cd "${gitdir}"
 gitexec "config core.filemode off"
+gitexec "checkout -t origin/${branch}"
 set +x
-echo "[-] git checkout ${branch}"
-gitexec "checkout -t origin/${branch} > /dev/null 2>&1"
 echo "[-] Done"
