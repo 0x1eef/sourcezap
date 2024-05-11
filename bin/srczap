@@ -5,7 +5,7 @@ set -e
 # variables
 localbase="${LOCALBASE:-/usr/local}"
 gitdir="/home/_srczap/src"
-giturl="${SRCZAP_GITURL:-https://git.hardenedbsd.org/hardenedbsd/HardenedBSD/}"
+giturl="${SRCZAP_GITURL:-https://git.hardenedbsd.org/hardenedbsd/HardenedBSD.git}"
 branch="${SRCZAP_BRANCH:-hardened/14-stable/master}"
 installdir="${SRCZAP_INSTALLDIR:-/usr/src}"
 revision="${installdir}"/.srczap
