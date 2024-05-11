@@ -61,7 +61,7 @@ via git:
     $ git clone https://github.com/0x1eef/srczap.git
     $ cd srczap
     # make install
-    # srczap setup
+    # setup-srczap
     # pw groupmod -n _srczap -m <user>
 
 ## Requirements
