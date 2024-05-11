@@ -11,14 +11,13 @@ can be installed into `/usr/src/` by root.
 ### CLI: setup-srczap
 
 This command should be run after installing srczap for
-the first time.
+the first time:
 
     # Add the srczap user, group and home directory.
     # This command requires root privileges.
     # setup-srczap
 
 ### CLI: srczap
-
 
     # Clone the HardenedBSD source tree into /home/_srczap/src/.
     # This command is delegated to the '_srczap' user.
