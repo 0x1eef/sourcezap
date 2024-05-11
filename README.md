@@ -1,7 +1,7 @@
 ## About
 
 srczap manages a local copy of the
-[HardenedBSD source code](https://git.hardenedbsd.org/hardenedbsd/HardenedBSD).
+[HardenedBSD source tree](https://git.hardenedbsd.org/hardenedbsd/HardenedBSD).
 The copy of the source tree is maintained by members of
 the `_srczap` group, and a copy of the source tree
 can be installed to `/usr/src/` by root.
@@ -20,7 +20,7 @@ the first time.
 ### CLI: srczap
 
 
-    # Clone the HardenedBSD source code into /home/_srczap/src/.
+    # Clone the HardenedBSD source tree into /home/_srczap/src/.
     # This command is delegated to the '_srczap' user.
     $ srczap clone
 
