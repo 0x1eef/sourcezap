@@ -46,9 +46,9 @@ case $1 in
         require_dependency "git doas"
         "${libexec}"/sourcezap-pull "${gitdir}"
         ;;
-    "set-branch")
+    "checkout")
         require_dependency "git doas"
-        "${libexec}"/sourcezap-setbranch "${gitdir}" "${2}"
+        "${libexec}"/sourcezap-checkout "${gitdir}" "${2}"
         ;;
     "erase")
         "${libexec}"/sourcezap-erase "${gitdir}" "${installdir}"
@@ -63,7 +63,7 @@ case $1 in
         printf "Commands:\n"
         printf "  clone       Clone the HardenedBSD source tree\n"
         printf "  pull        Pull source tree updates\n"
-        printf "  set-branch  Set a branch other than the default\n"
+        printf "  checkout    Checkout a branch other than the default\n"
         printf "  install     Install the source tree into /usr/src/\n"
         printf "  erase       Erase /usr/src/ and /home/_sourcezap/src/\n"
         ;;

@@ -27,9 +27,9 @@ the first time:
     # This command is delegated to the '_sourcezap' user
     $ sourcezap pull
 
-    # Set a branch other than the default: hardened/14-stable/master
+    # Checkout a branch other than the default: hardened/14-stable/master
     # This command is delegated to the '_sourcezap' user
-    $ sourcezap set-branch hardened/13-stable/master
+    $ sourcezap checkout hardened/13-stable/master
 
     # Install /home/_sourcezap/src/ into /usr/src/
     # This command requires root privileges
