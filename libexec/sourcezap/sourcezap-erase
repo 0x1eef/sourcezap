@@ -38,18 +38,17 @@ while true; do
     read -r r
     if [ "${r}" = "1" ]; then
         erase "${gitdir}"
-        exit
     elif [ "${r}" = "2" ]; then
         erase "${installdir}"
-        exit
     elif [ "${r}" = "3" ]; then
         erase "${gitdir}"
         erase "${installdir}"
-        exit
     elif [ "${r}" = "4" ]; then
-        exit
+        break
     else
         printf "%s is not a valid option\n" "${r}"
         printf "1-4: "
+        continue
     fi
+    exit
 done
