@@ -25,11 +25,10 @@ erase()
 ##
 # main
 if [ "$(id -u)" != "0" ]; then
-    echo "[-] This command must be run by root"
+    echo "[x] This command must be run by root"
     exit 1
 fi
 
-printf "Choose an option:\n"
 printf "1 Erase %s\n" "${gitdir}"
 printf "2 Erase %s\n" "${installdir}"
 printf "3 Erase both (%s and %s)\n" "${gitdir}" "${installdir}"
@@ -48,10 +47,9 @@ while true; do
         erase "${installdir}"
         exit
     elif [ "${r}" = "4" ]; then
-        printf "[-] Exiting... \n"
         exit
     else
-        printf "[x] %s is not a valid option.\n" "${r}"
+        printf "%s is not a valid option\n" "${r}"
         printf "1-4: "
     fi
 done
