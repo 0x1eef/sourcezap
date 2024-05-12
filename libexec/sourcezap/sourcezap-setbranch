@@ -26,7 +26,6 @@ if ! "${libexec}"/issourcezap-member; then
 fi
 
 if [ ! -e "${gitdir}/.git" ]; then
-    set +x
     echo "[x] ${gitdir} is not a valid git repository."
     echo "[x] Try 'sourcezap clone'"
     exit 1
