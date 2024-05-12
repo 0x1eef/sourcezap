@@ -37,4 +37,4 @@ gitexec "fetch origin"
 gitexec "checkout ${branch}" ||
 gitexec "checkout -t origin/${branch}"
 set +x
-printf "[-] New branch: %s\n" "${branch}"
+printf "current branch: %s\n" "${branch}"
