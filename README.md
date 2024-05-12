@@ -42,7 +42,7 @@ the first time:
 
 ### ENVIRONMENT
 
-* __$SOURCEZAP\_GITURL__ <br>
+* __$SOURCEZAP\_CLONEURL__ <br>
   The URL to a git repository.  <br>
   Default: https://git.HardenedBSD.org/HardenedBSD/HardenedBSD.git.
 
