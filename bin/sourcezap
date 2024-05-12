@@ -50,8 +50,8 @@ case $1 in
         require_dependency "git doas"
         "${libexec}"/sourcezap-checkout "${gitdir}" "${2}"
         ;;
-    "erase")
-        "${libexec}"/sourcezap-erase "${gitdir}" "${installdir}"
+    "rm")
+        "${libexec}"/sourcezap-rm "${gitdir}" "${installdir}"
         ;;
     "install")
         require_dependency "git doas"
@@ -65,6 +65,6 @@ case $1 in
         printf "  pull        Pull source tree updates\n"
         printf "  checkout    Checkout a branch other than the default\n"
         printf "  install     Install the source tree into /usr/src/\n"
-        printf "  erase       Erase /usr/src/ and /home/_sourcezap/src/\n"
+        printf "  rm          Remove /usr/src/ and /home/_sourcezap/src/\n"
         ;;
 esac

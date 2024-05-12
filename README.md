@@ -35,9 +35,9 @@ the first time:
     # This command requires root privileges
     # sourcezap install
 
-    # Start over: erase /usr/src/ and /home/_sourcezap/src/
+    # Remove the contents of /usr/src/ and /home/_sourcezap/src/
     # This command requires root privileges
-    $ sourcezap erase
+    $ sourcezap rm
 
 
 ### ENVIRONMENT

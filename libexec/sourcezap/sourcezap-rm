@@ -29,9 +29,9 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
-printf "1 Erase %s\n" "${gitdir}"
-printf "2 Erase %s\n" "${installdir}"
-printf "3 Erase both (%s and %s)\n" "${gitdir}" "${installdir}"
+printf "1 Remove the contents of %s\n" "${gitdir}"
+printf "2 Remove the contents of %s\n" "${installdir}"
+printf "3 Remove the contents of both (%s and %s)\n" "${gitdir}" "${installdir}"
 printf "4 Do nothing\n"
 printf "1-4: "
 while true; do
