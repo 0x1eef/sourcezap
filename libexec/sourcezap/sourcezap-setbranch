@@ -6,8 +6,10 @@ set -e
 libexec=$(dirname "$0")
 localbase=${LOCALBASE:-/usr/local}
 git="${localbase}"/bin/git
-gitdir="$1"
 mode="u=rwX,g=rX,o="
+gitdir="$1"
+branch="$2"
+remote="origin"
 
 ##
 # functions
@@ -31,7 +33,11 @@ if [ ! -e "${gitdir}/.git" ]; then
     exit 1
 fi
 
+printf "Set new branch: %s\n" "${branch}"
 set -x
 cd "${gitdir}"
-branch=$(gitexec "branch --show-current")
-gitexec "pull --rebase origin ${branch}"
+gitexec "fetch origin"
+gitexec "checkout ${branch}" ||
+gitexec "checkout -t origin/${branch}"
+set +x
+printf "New branch: %s\n" "${branch}"

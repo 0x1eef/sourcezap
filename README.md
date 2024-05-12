@@ -27,6 +27,10 @@ the first time:
     # This command is delegated to the '_sourcezap' user
     $ sourcezap pull
 
+    # Set a branch other than the default: hardened/14-stable/master
+    # This command is delegated to the '_sourcezap' user
+    $ sourcezap set-branch hardened/13-stable/master
+
     # Install /home/_sourcezap/src/ into /usr/src/
     # This command requires root privileges
     # sourcezap install
@@ -41,10 +45,6 @@ the first time:
 * __$SOURCEZAP\_GITURL__ <br>
   The URL to a git repository.  <br>
   Default: https://git.HardenedBSD.org/HardenedBSD/HardenedBSD.git.
-
-* __$SOURCEZAP\_BRANCH__ <br>
-  The git branch to clone and pull updates from. <br>
-  Default: hardened/14-stable/master.
 
 * __$SOURCEZAP\_INSTALLDIR__ <br>
   The directory where the source tree will be installed. <br>

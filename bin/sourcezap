@@ -4,9 +4,9 @@ set -e
 ##
 # variables
 localbase="${LOCALBASE:-/usr/local}"
+defaultbranch="hardened/14-stable/master"
 gitdir="/home/_sourcezap/src"
 giturl="${SOURCEZAP_GITURL:-https://git.hardenedbsd.org/hardenedbsd/HardenedBSD.git}"
-branch="${SOURCEZAP_BRANCH:-hardened/14-stable/master}"
 installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
 revision="${installdir}"/.sourcezap
 libexec="${localbase}"/libexec/sourcezap
@@ -40,11 +40,15 @@ done
 case $1 in
     "clone")
         require_dependency "git doas"
-        "${libexec}"/sourcezap-clone "${giturl}" "${gitdir}" "${branch}"
+        "${libexec}"/sourcezap-clone "${giturl}" "${gitdir}" "${defaultbranch}"
         ;;
     "pull")
         require_dependency "git doas"
-        "${libexec}"/sourcezap-pull "${gitdir}" "${branch}"
+        "${libexec}"/sourcezap-pull "${gitdir}"
+        ;;
+    "set-branch")
+        require_dependency "git doas"
+        "${libexec}"/sourcezap-setbranch "${gitdir}" "${2}"
         ;;
     "erase")
         "${libexec}"/sourcezap-erase "${gitdir}" "${installdir}"
@@ -57,9 +61,10 @@ case $1 in
         printf "Usage: sourcezap COMMAND [OPTIONS]\n"
         printf "\n"
         printf "Commands:\n"
-        printf "  clone    Clone the HardenedBSD source tree\n"
-        printf "  pull     Pull source tree updates\n"
-        printf "  erase    Erase /usr/src/ and /home/_sourcezap/src/\n"
-        printf "  install  Install the source tree into /usr/src/\n"
+        printf "  clone       Clone the HardenedBSD source tree\n"
+        printf "  pull        Pull source tree updates\n"
+        printf "  set-branch  Set a branch other than the default\n"
+        printf "  install     Install the source tree into /usr/src/\n"
+        printf "  erase       Erase /usr/src/ and /home/_sourcezap/src/\n"
         ;;
 esac

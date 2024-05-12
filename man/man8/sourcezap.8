@@ -10,6 +10,8 @@ sourcezap clone
 .br
 sourcezap pull
 .br
+sourcezap set-branch
+.br
 sourcezap install
 .br
 sourcezap erase
@@ -34,6 +36,12 @@ Pull updates into /home/_sourcezap/src/.
 .br
 This command is delegated to the '_sourcezap' user.
 .Pp
+.Nm sourcezap set-branch
+.br
+Set a branch other than the default: hardened/14-stable/master.
+.br
+This command is delegated to the '_sourcezap' user.
+.Pp
 .Nm sourcezap install
 .br
 Install /home/_sourcezap/src/ into /usr/src/.
@@ -54,13 +62,6 @@ This command requires root privileges.
 The URL to a git repository.
 .br
 Default: https://git.HardenedBSD.org/HardenedBSD/HardenedBSD.git/
-.sp
-.Nm SOURCEZAP_BRANCH
-.br
-The git branch to clone and pull updates from.
-.br
-Default: hardened/14-stable/master
-.br
 .sp
 .Nm SOURCEZAP_INSTALLDIR
 .br
