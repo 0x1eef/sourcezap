@@ -27,7 +27,7 @@ fi
 
 if [ ! -e "${gitdir}/.git" ]; then
     echo "[x] ${gitdir} is not a valid git repository."
-    echo "[x] Try 'sourcezap clone'"
+    echo "[x] Try: sourcezap clone"
     exit 1
 fi
 

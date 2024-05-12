@@ -28,7 +28,7 @@ fi
 
 if [ -e "${gitdir}/.git" ]; then
     echo "[x] ${gitdir} exists."
-    echo "[x] Try 'sourcezap pull'"
+    echo "[x] Try: sourcezap pull"
     exit 1
 fi
 
