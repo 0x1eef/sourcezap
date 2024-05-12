@@ -7,30 +7,10 @@ gitdir=$1
 installdir=$2
 
 ##
-# main
-if [ "$(id -u)" != "0" ]; then
-    echo "[-] This command must be run by root"
-    exit 1
-fi
-
-printf "[-] Are you sure ? \n"
-printf "[-] These directories will be erased:\n"
-printf "    [*] %s \n" "${gitdir}"
-printf "    [*] %s \n" "${installdir}"
-printf "[y|n] "
-while true; do
-    read -r r
-    if [ "${r}" = "y" ]; then
-        break
-    elif [ "${r}" = "n" ]; then
-        printf "[-] Nothing to do\n"
-        exit
-    else
-        printf "[x] '%s' is not a valid option.\n" "${r}"
-        printf "[y|n] "
-    fi
-done
-for dir in "${gitdir}" "${installdir}"; do
+# functions
+erase()
+{
+    dir="${1}"
     printf "%s  " "${dir}"
     find "${dir}" \
         -maxdepth 1 \
@@ -40,5 +20,38 @@ for dir in "${gitdir}" "${installdir}"; do
         -exec printf . \; \
         -exec rm -rf "{}" \;
     echo
+}
+
+##
+# main
+if [ "$(id -u)" != "0" ]; then
+    echo "[-] This command must be run by root"
+    exit 1
+fi
+
+printf "Choose an option:\n"
+printf "1 Erase %s\n" "${gitdir}"
+printf "2 Erase %s\n" "${installdir}"
+printf "3 Erase both (%s and %s)\n" "${gitdir}" "${installdir}"
+printf "4 Do nothing\n"
+printf "1-4: "
+while true; do
+    read -r r
+    if [ "${r}" = "1" ]; then
+        erase "${gitdir}"
+        exit
+    elif [ "${r}" = "2" ]; then
+        erase "${installdir}"
+        exit
+    elif [ "${r}" = "3" ]; then
+        erase "${gitdir}"
+        erase "${installdir}"
+        exit
+    elif [ "${r}" = "4" ]; then
+        printf "[-] Exiting... \n"
+        exit
+    else
+        printf "[x] %s is not a valid option.\n" "${r}"
+        printf "1-4: "
+    fi
 done
-printf "[-] Done\n"
