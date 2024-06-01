@@ -3,35 +3,44 @@ set -e
 
 ##
 # variables
-localbase="${LOCALBASE:-/usr/local}"
+localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/..)}
+libexec="${localbase}"/libexec/sourcezap
 conf=$(cat "${localbase}"/share/sourcezap/doas.conf)
 doas="${localbase}"/etc/doas.conf
 
 ##
+# functions
+printok()
+{
+    "${libexec}"/utils/printok "${1}"
+}
+
+printerr()
+{
+    "${libexec}"/utils/printerr "${1}"
+}
+
+##
 # main
 if [ "$(id -u)" != "0" ]; then
-    echo "[x] This command must be run by root"
+    printerr "you must be root"
     exit 1
 fi
 
 if id -u _sourcezap > /dev/null 2>&1; then
-    echo "[-] The _sourcezap user exists"
-    echo "[-] Add user(s) to the _sourcezap group:"
-    echo "root# pw groupmod -n _sourcezap -m user1,user2"
+    printok "_sourcezap user exists"
 else
     pw useradd -n _sourcezap \
         -c "sourcezap user" \
         -m \
         -s /sbin/nologin
     chmod u=rwX,g=rX,o= /home/_sourcezap/
-    echo "[-] The _sourcezap user, group and home directory have been created."
-    echo "[-] Add user(s) to the _sourcezap group:"
-    echo "root# pw groupmod -n _sourcezap -m user1,user2"
+    printok "create _sourcezap user"
 fi
 
 if grep -F "^${conf}$" "${doas}" > /dev/null 2>&1; then
-    echo "[-] No changes made to ${doas}"
+    printok "${doas} is up to date"
 else
     echo "$conf" >> "$doas"
-    echo "[-] ${doas} has been changed. Please review the changes"
+    printok "update ${doas} (note: review the update)"
 fi

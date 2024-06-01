@@ -1,0 +1,49 @@
+#!/bin/sh
+set -e
+
+##
+# variables
+localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/../../..)}
+libexec="${localbase}"/libexec/sourcezap
+gitdir=$1
+
+##
+# functions
+gitexec()
+{
+    "${libexec}"/utils/gitexec "${1}"
+}
+
+printok()
+{
+    "${libexec}"/utils/printok "${1}"
+}
+
+printerr()
+{
+    "${libexec}"/utils/printerr "${1}"
+}
+
+##
+# main
+if [ "$(id -u)" = "0" ]; then
+    printerr "you must be a user other than root"
+    exit 1
+fi
+
+if ! "${libexec}"/issourcezap-member; then
+    printerr "$(id -un) is not a member of _sourcezap"
+    exit 1
+fi
+
+if [ ! -e "${gitdir}/.git" ]; then
+    set +x
+    printerr "try 'sourcezap clone' instead"
+    exit 1
+fi
+
+set -x
+cd "${gitdir}"
+branch=$(gitexec "branch --show-current")
+gitexec "pull --rebase origin ${branch}"
+printok "pull complete"

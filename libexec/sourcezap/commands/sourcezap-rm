@@ -3,6 +3,8 @@ set -e
 
 ##
 # variables
+localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/../../..)}
+libexec="${localbase}"/libexec/sourcezap
 gitdir=$1
 installdir=$2
 
@@ -22,10 +24,15 @@ erase()
     echo
 }
 
+printerr()
+{
+    "${libexec}"/utils/printerr "${1}"
+}
+
 ##
 # main
 if [ "$(id -u)" != "0" ]; then
-    echo "[x] This command must be run by root"
+    printerr "you must be root"
     exit 1
 fi
 

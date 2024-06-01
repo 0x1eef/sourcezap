@@ -3,21 +3,27 @@ set -e
 
 ##
 # variables
-localbase="${LOCALBASE:-/usr/local}"
+localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/..)}
+libexec="${localbase}"/libexec/sourcezap
 defaultbranch="hardened/14-stable/master"
 gitdir="/home/_sourcezap/src"
 giturl="${SOURCEZAP_CLONEURL:-https://git.hardenedbsd.org/hardenedbsd/HardenedBSD.git}"
 installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
 revision="${installdir}"/.sourcezap
-libexec="${localbase}"/libexec/sourcezap
 
 ##
 # functions
-require_dependency() {
+printerr()
+{
+    "${libexec}"/utils/printerr "${1}"
+}
+
+require_dependency()
+{
     deps=$1
     for dep in $deps; do
         if ! which -s "$dep"; then
-            echo "[x] This command requires ${dep}, but ${dep} wasn't found"
+            printerr "${dep} wasn't found on \$PATH"
             exit 1
         fi
     done
@@ -40,22 +46,22 @@ done
 case $1 in
     "clone")
         require_dependency "git doas"
-        "${libexec}"/sourcezap-clone "${giturl}" "${gitdir}" "${defaultbranch}"
+        "${libexec}"/commands/sourcezap-clone "${giturl}" "${gitdir}" "${defaultbranch}"
         ;;
     "pull")
         require_dependency "git doas"
-        "${libexec}"/sourcezap-pull "${gitdir}"
+        "${libexec}"/commands/sourcezap-pull "${gitdir}"
         ;;
     "checkout")
         require_dependency "git doas"
-        "${libexec}"/sourcezap-checkout "${gitdir}" "${2}"
+        "${libexec}"/commands/sourcezap-checkout "${gitdir}" "${2}"
         ;;
     "rm")
-        "${libexec}"/sourcezap-rm "${gitdir}" "${installdir}"
+        "${libexec}"/commands/sourcezap-rm "${gitdir}" "${installdir}"
         ;;
     "install")
         require_dependency "git doas"
-        "${libexec}"/sourcezap-install "${gitdir}" "${installdir}" "${revision}"
+        "${libexec}"/commands/sourcezap-install "${gitdir}" "${installdir}" "${revision}"
         ;;
     *)
         printf "Usage: sourcezap COMMAND [OPTIONS]\n"
