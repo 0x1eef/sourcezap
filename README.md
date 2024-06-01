@@ -65,8 +65,8 @@ via git:
 
 ## Requirements
 
-* [doas](https://man.openbsd.org/doas) (`pkg install doas`)
-* [git](https://www.man7.org/linux/man-pages/man1/git.1.html) (`pkg install git`)
+* [doas](https://man.openbsd.org/doas)
+* [git](https://www.man7.org/linux/man-pages/man1/git.1.html)
 
 ## Sources
 
