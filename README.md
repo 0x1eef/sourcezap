@@ -57,7 +57,7 @@ the first time:
 The most recent version of sourcezap can be installed directly
 via git:
 
-    user@localhost$ git clone https://github.com/0x1eef/sourcezap.git
+    user@localhost$ git clone https://git.hardenedbsd.org/0x1eef/sourcezap.git
     user@localhost$ cd sourcezap
     root@localhost# make install
     root@localhost# setup-sourcezap
