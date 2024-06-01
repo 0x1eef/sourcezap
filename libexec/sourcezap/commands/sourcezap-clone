@@ -18,7 +18,7 @@ gitexec()
 
 printok()
 {
-    "${libexec}"/utils/printerr "${1}"
+    "${libexec}"/utils/printok "${1}"
 }
 
 printerr()
@@ -33,7 +33,7 @@ if [ "$(id -u)" = "0" ]; then
     exit 1
 fi
 
-if ! "${libexec}"/issourcezap-member; then
+if ! "${libexec}"/utils/issourcezap-member; then
     printerr "$(id -un) is not a member of _sourcezap"
     exit 1
 fi
