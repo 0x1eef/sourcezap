@@ -15,40 +15,40 @@ the first time:
 
     # Add the '_sourcezap' user, group and home directory
     # This command requires root privileges
-    # setup-sourcezap
+    root@localhost# setup-sourcezap
 
 ### CLI: sourcezap
 
     # Clone the HardenedBSD source tree into /home/_sourcezap/src/
     # This command is delegated to the '_sourcezap' user
-    $ sourcezap clone
+    user@localhost$ sourcezap clone
 
     # Pull updates into /home/_sourcezap/src/
     # This command is delegated to the '_sourcezap' user
-    $ sourcezap pull
+    user@localhost$ sourcezap pull
 
     # Checkout a branch other than the default: hardened/14-stable/master
     # This command is delegated to the '_sourcezap' user
-    $ sourcezap checkout hardened/13-stable/master
+    user@localhost$ sourcezap checkout hardened/13-stable/master
 
     # Install /home/_sourcezap/src/ into /usr/src/
     # This command requires root privileges
-    # sourcezap install
+    root@localhost# sourcezap install
 
     # Remove the contents of /usr/src/ and /home/_sourcezap/src/
     # This command requires root privileges
-    $ sourcezap rm
+    root@localhost# sourcezap rm
 
 
-### ENVIRONMENT
+### Environment
 
 * __$SOURCEZAP\_CLONEURL__ <br>
-  The URL to a git repository.  <br>
+  The URL of a git repository  <br>
   Default: https://git.HardenedBSD.org/HardenedBSD/HardenedBSD.git.
 
 * __$SOURCEZAP\_INSTALLDIR__ <br>
-  The directory where the source tree will be installed. <br>
-  Default: /usr/src/.
+  The directory where the source tree will be installed <br>
+  Default: /usr/src/
 
 ## Install
 
@@ -57,11 +57,11 @@ the first time:
 The most recent version of sourcezap can be installed directly
 via git:
 
-    $ git clone https://github.com/0x1eef/sourcezap.git
-    $ cd sourcezap
-    # make install
-    # setup-sourcezap
-    # pw groupmod -n _sourcezap -m <user>
+    user@localhost$ git clone https://github.com/0x1eef/sourcezap.git
+    user@localhost$ cd sourcezap
+    root@localhost# make install
+    root@localhost# setup-sourcezap
+    root@localhost# pw groupmod -n _sourcezap -m <user>
 
 ## Requirements
 
@@ -76,5 +76,5 @@ via git:
 
 ## License
 
-[BSD Zero Clause](https://choosealicense.com/licenses/0bsd/). <br>
-See [LICENSE](./LICENSE).
+[BSD Zero Clause](https://choosealicense.com/licenses/0bsd/) <br>
+See [LICENSE](./LICENSE)
