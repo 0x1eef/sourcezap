@@ -3,18 +3,16 @@ set -e
 
 ##
 # variables
-localbase=${LOCALBASE:-/usr/local}
-git="${localbase}"/bin/git
+localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/../../..)}
+libexec="${localbase}"/libexec/sourcezap
 gitdir=$1
 commit=$2
-mode=u=rwX,g=rX,o=
 
 ##
 # functions
 gitexec()
 {
-    doas -n -u _sourcezap \
-         /bin/sh -c "umask ${mode}; ${git} ${1}"
+    "${libexec}"/utils/gitexec "${1}"
 }
 
 ##
