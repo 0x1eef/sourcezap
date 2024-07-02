@@ -8,4 +8,4 @@ libexec="${localbase}"/libexec/sourcezap
 
 ##
 # main
-"${libexec}"/utils/gitexec diff -l0 ${@}
+"${libexec}"/utils/git diff -l0 ${@}

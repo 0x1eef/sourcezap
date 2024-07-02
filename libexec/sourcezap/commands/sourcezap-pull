@@ -9,9 +9,9 @@ gitdir=$1
 
 ##
 # functions
-gitexec()
+git()
 {
-    "${libexec}"/utils/gitexec "${1}"
+    "${libexec}"/utils/git "${@}"
 }
 
 printok()
@@ -44,7 +44,7 @@ fi
 
 set -x
 cd "${gitdir}"
-branch=$(gitexec "branch --show-current")
-gitexec "pull --rebase origin ${branch}"
+branch=$(git "branch --show-current")
+git pull --rebase origin "${branch}"
 set +x
 printok "pull complete"

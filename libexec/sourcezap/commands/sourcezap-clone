@@ -11,9 +11,9 @@ branch=$3
 
 ##
 # functions
-gitexec()
+git()
 {
-    "${libexec}"/utils/gitexec "${1}"
+    "${libexec}"/utils/git "${@}"
 }
 
 printok()
@@ -44,9 +44,9 @@ if [ -e "${gitdir}/.git" ]; then
 fi
 
 set -x
-gitexec "clone ${giturl} ${gitdir}"
+git clone "${giturl}" "${gitdir}"
 cd "${gitdir}"
-gitexec "config core.filemode off"
-gitexec "checkout -t origin/${branch}"
+git config core.filemode off
+git checkout -t origin/"${branch}"
 set +x
 printok "clone complete"
