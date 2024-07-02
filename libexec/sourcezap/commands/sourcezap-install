@@ -55,8 +55,7 @@ perform_install()
         ! -name ".arclint" \
         ! -name ".arcconfig" \
         -exec cp -Rpv {} "${installdir}" \;
-    set -x
-    chown -R root "${installdir}"
+    chown -Rv root "${installdir}"
 }
 
 run_install()
