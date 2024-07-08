@@ -7,7 +7,6 @@ localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/../../..)}
 libexec="${localbase}"/libexec/sourcezap
 gitdir=$1
 
-echo "is $@"
 ##
 # functions
 git()
