@@ -44,7 +44,7 @@ the first time:
 
 * __$SOURCEZAP\_CLONEURL__ <br>
   The URL of a git repository  <br>
-  Default: https://git.HardenedBSD.org/HardenedBSD/HardenedBSD.git.
+  Default: https://git.HardenedBSD.org/HardenedBSD/HardenedBSD.git
 
 * __$SOURCEZAP\_INSTALLDIR__ <br>
   The directory where the source tree will be installed <br>
