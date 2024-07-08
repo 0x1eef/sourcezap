@@ -7,6 +7,7 @@ localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/../../..)}
 libexec="${localbase}"/libexec/sourcezap
 gitdir=$1
 
+echo "is $@"
 ##
 # functions
 git()
@@ -44,7 +45,7 @@ fi
 
 set -x
 cd "${gitdir}"
-branch=$(git "branch --show-current")
+branch=$(git branch --show-current)
 git pull --rebase origin "${branch}"
 set +x
 printok "pull complete"
