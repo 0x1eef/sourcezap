@@ -52,10 +52,15 @@ the first time:
 
 ## Install
 
-**Source**
+#### Package
 
-The most recent version of sourcezap can be installed directly
-via git:
+sourcezap is available
+[from the HardenedBSD ports tree](https://git.HardenedBSD.org/HardenedBSD/ports/-/tree/HardenedBSD/main/hardenedbsd/sourcezap).
+`pkg install sourcezap` should work too but expect slower updates.
+
+#### Git
+
+The most recent version of sourcezap can be installed via git:
 
     user@localhost$ git clone https://git.hardenedbsd.org/0x1eef/sourcezap.git
     user@localhost$ cd sourcezap
