@@ -55,7 +55,7 @@ the first time:
 #### Package
 
 sourcezap is available
-[from the HardenedBSD ports tree](https://git.HardenedBSD.org/HardenedBSD/ports/-/tree/HardenedBSD/main/hardenedbsd/sourcezap).
+[from the HardenedBSD ports tree](https://git.HardenedBSD.org/HardenedBSD/ports/-/tree/HardenedBSD/main/hardenedbsd/sourcezap). <br>
 `pkg install sourcezap` should work too but expect slower updates.
 
 #### Git
