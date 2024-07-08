@@ -72,8 +72,8 @@ via git:
 
 * [GitHub](https://github.com/0x1eef/sourcezap)
 * [GitLab](https://gitlab.com/0x1eef/sourcezap)
-* [git.HardenedBSD.org](https://git.HardenedBSD.org/0x1eef/sourcezap)
-* [brew.bsd.cafe](https://brew.bsd.cafe/0x1eef/sourcezap)
+* [git.HardenedBSD.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/sourcezap)
+* [brew.bsd.cafe/@0x1eef](https://brew.bsd.cafe/0x1eef/sourcezap)
 
 ## License
 
