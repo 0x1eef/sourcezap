@@ -62,10 +62,15 @@ sourcezap is available
 
 The most recent version of sourcezap can be installed via git:
 
+    # Clone
     user@localhost$ git clone https://git.hardenedbsd.org/0x1eef/sourcezap.git
     user@localhost$ cd sourcezap
+
+    # Install
     root@localhost# make install
     root@localhost# setup-sourcezap
+
+    # Add user to '_sourcezap' group
     root@localhost# pw groupmod -n _sourcezap -m <user>
 
 ## Requirements
