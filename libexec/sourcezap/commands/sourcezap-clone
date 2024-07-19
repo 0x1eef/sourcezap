@@ -12,7 +12,7 @@ branch=$3
 
 ##
 # functions
-. "${libexec}"/functions.sh
+. "${libexec}"/functions/print.sh
 
 ##
 # main

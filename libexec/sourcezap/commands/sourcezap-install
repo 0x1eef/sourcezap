@@ -13,7 +13,7 @@ revfile=$3
 
 ##
 # functions
-. "${libexec}"/functions.sh
+. "${libexec}"/functions/print.sh
 
 perform_update()
 {
