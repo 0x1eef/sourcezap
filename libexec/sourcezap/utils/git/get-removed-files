@@ -10,10 +10,7 @@ commit=$2
 
 ##
 # functions
-git()
-{
-    "${libexec}"/utils/git/run "${@}"
-}
+. "${libexec}"/functions.sh
 
 ##
 # main

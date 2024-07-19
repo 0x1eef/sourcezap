@@ -10,15 +10,7 @@ doas="${localbase}"/etc/doas.conf
 
 ##
 # functions
-printok()
-{
-    "${libexec}"/utils/printok "${1}"
-}
-
-printerr()
-{
-    "${libexec}"/utils/printerr "${1}"
-}
+. "${libexec}"/functions.sh
 
 ##
 # main

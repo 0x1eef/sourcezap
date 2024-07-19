@@ -11,20 +11,7 @@ branch=$3
 
 ##
 # functions
-git()
-{
-    "${libexec}"/utils/git/run "${@}"
-}
-
-printok()
-{
-    "${libexec}"/utils/printok "${1}"
-}
-
-printerr()
-{
-    "${libexec}"/utils/printerr "${1}"
-}
+. "${libexec}"/functions.sh
 
 ##
 # main

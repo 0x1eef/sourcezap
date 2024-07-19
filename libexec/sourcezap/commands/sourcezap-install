@@ -12,6 +12,8 @@ revfile=$3
 
 ##
 # functions
+. "${libexec}"/functions.sh
+
 perform_update()
 {
     rev=$(cat "${revfile}")
@@ -61,21 +63,6 @@ perform_install()
 run_install()
 {
     install -o root -g _sourcezap -m "${mode}" -v "$@"
-}
-
-git()
-{
-    "${libexec}"/utils/git/run "${@}"
-}
-
-printok()
-{
-    "${libexec}"/utils/printok "${1}"
-}
-
-printerr()
-{
-    "${libexec}"/utils/printerr "${1}"
 }
 
 ##
