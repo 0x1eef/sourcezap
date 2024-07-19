@@ -10,13 +10,12 @@ commit=$2
 
 ##
 # functions
-diff()
+git()
 {
-    "${libexec}"/utils/gitdiff ${@}
+    "${libexec}"/utils/git/run "${@}"
 }
 
 ##
 # main
 cd "${gitdir}"
-diff "--name-only" "--diff-filter=A" "${commit}" "HEAD"
-diff "--name-only" "--diff-filter=M" "${commit}" "HEAD"
+git diff -l0 --name-only --diff-filter=D "${commit}" "HEAD"

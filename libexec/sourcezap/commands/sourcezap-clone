@@ -13,7 +13,7 @@ branch=$3
 # functions
 git()
 {
-    "${libexec}"/utils/git "${@}"
+    "${libexec}"/utils/git/run "${@}"
 }
 
 printok()

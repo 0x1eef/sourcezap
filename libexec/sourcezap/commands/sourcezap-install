@@ -15,8 +15,8 @@ revfile=$3
 perform_update()
 {
     rev=$(cat "${revfile}")
-    add=$("${libexec}"/utils/git-changed-files "${gitdir}" "${rev}")
-    del=$("${libexec}"/utils/git-removed-files "${gitdir}" "${rev}")
+    add=$("${libexec}"/utils/git/get-changed-files "${gitdir}" "${rev}")
+    del=$("${libexec}"/utils/git/get-removed-files "${gitdir}" "${rev}")
     for file in ${del}; do
         target="${installdir}/${file}"
         parent=$(dirname "${target}")
@@ -63,6 +63,11 @@ run_install()
     install -o root -g _sourcezap -m "${mode}" -v "$@"
 }
 
+git()
+{
+    "${libexec}"/utils/git/run "${@}"
+}
+
 printok()
 {
     "${libexec}"/utils/printok "${1}"
@@ -91,5 +96,5 @@ if [ -e "${revfile}" ]; then
 else
     perform_install
 fi
-"${libexec}"/utils/git-rev "${gitdir}" > "${revfile}"
+"${libexec}"/utils/git/run rev-parse HEAD > "${revfile}"
 printok "install complete"
