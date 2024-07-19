@@ -1,10 +1,5 @@
 #!/bin/sh
 
-git()
-{
-    "${libexec}"/utils/git/run "${@}"
-}
-
 printok()
 {
     printf "ok: %s\n" "${@}" > /dev/stdout

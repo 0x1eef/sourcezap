@@ -6,6 +6,7 @@ set -e
 localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/../../..)}
 libexec="${localbase}"/libexec/sourcezap
 mode=u=rwX,g=rX,o=
+git="${libexec}"/utils/git/run
 gitdir=$1
 installdir=$2
 revfile=$3
@@ -72,7 +73,7 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
-umask ${mode}
+umask "${mode}"
 cd "${gitdir}"
 run_install "-d" "${installdir}"
 chmod ${mode} "${installdir}"
@@ -81,5 +82,5 @@ if [ -e "${revfile}" ]; then
 else
     perform_install
 fi
-git rev-parse HEAD > "${revfile}"
+"${git}" rev-parse HEAD > "${revfile}"
 printok "install complete"

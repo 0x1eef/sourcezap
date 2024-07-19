@@ -5,6 +5,7 @@ set -e
 # variables
 localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/../../..)}
 libexec="${localbase}"/libexec/sourcezap
+git="${libexec}"/utils/git/run
 gitdir=$1
 
 ##
@@ -30,6 +31,6 @@ if [ ! -e "${gitdir}/.git" ]; then
 fi
 
 cd "${gitdir}"
-branch=$(git branch --show-current)
-git pull --rebase origin "${branch}"
+branch=$("${git}" branch --show-current)
+"${git}" pull --rebase origin "${branch}"
 printok "pull complete"
