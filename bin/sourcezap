@@ -13,10 +13,7 @@ revision="${installdir}"/.sourcezap
 
 ##
 # functions
-printerr()
-{
-    "${libexec}"/utils/printerr "${1}"
-}
+. "${libexec}"/functions/print.sh
 
 require_dependency()
 {
