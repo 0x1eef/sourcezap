@@ -10,7 +10,7 @@ doas="${localbase}"/etc/doas.conf
 
 ##
 # functions
-. "${libexec}"/functions.sh
+. "${libexec}"/functions/print.sh
 
 ##
 # main
