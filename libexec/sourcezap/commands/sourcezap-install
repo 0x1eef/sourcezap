@@ -72,16 +72,14 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
-set -x
 umask ${mode}
 cd "${gitdir}"
 run_install "-d" "${installdir}"
 chmod ${mode} "${installdir}"
-set +x
 if [ -e "${revfile}" ]; then
     perform_update
 else
     perform_install
 fi
-"${libexec}"/utils/git/run rev-parse HEAD > "${revfile}"
+git rev-parse HEAD > "${revfile}"
 printok "install complete"
