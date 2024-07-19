@@ -10,10 +10,6 @@ gitdir=$1
 commit=$2
 
 ##
-# functions
-. "${libexec}"/functions.sh
-
-##
 # main
 cd "${gitdir}"
 "${git}" diff -l0 --name-only --diff-filter=A "${commit}" "HEAD"
