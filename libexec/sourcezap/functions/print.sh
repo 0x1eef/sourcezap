@@ -2,10 +2,10 @@
 
 printok()
 {
-    printf "ok: %s\n" "${@}" > /dev/stdout
+    printf "ok: %s\n" "${1}" > /dev/stdout
 }
 
 printerr()
 {
-    printf "error: %s\n" "${@}" > /dev/stderr
+    printf "error: %s\n" "${1}" > /dev/stderr
 }
