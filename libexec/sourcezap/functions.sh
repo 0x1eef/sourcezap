@@ -7,10 +7,10 @@ git()
 
 printok()
 {
-    "${libexec}"/utils/printok "${@}"
+    printf "ok: %s\n" "${msg}" > /dev/stdout
 }
 
 printerr()
 {
-    "${libexec}"/utils/printerr "${@}"
+    printf "error: %s\n" "${err}" > /dev/stderr
 }
