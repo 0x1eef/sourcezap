@@ -42,9 +42,7 @@ if [ ! -e "${gitdir}/.git" ]; then
     exit 1
 fi
 
-set -x
 cd "${gitdir}"
 branch=$(git branch --show-current)
 git pull --rebase origin "${branch}"
-set +x
 printok "pull complete"
