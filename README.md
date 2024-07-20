@@ -8,7 +8,7 @@ can be installed into `/usr/src/` by root.
 
 ## Examples
 
-### CLI: setup-sourcezap
+#### CLI: setup-sourcezap
 
 This command should be run after installing sourcezap for
 the first time:
@@ -17,7 +17,7 @@ the first time:
     # This command requires root privileges
     root@localhost# setup-sourcezap
 
-### CLI: sourcezap
+#### CLI: sourcezap
 
     # Clone the HardenedBSD source tree into /home/_sourcezap/src/
     # This command is delegated to the '_sourcezap' user
@@ -40,7 +40,7 @@ the first time:
     root@localhost# sourcezap rm
 
 
-### Environment
+#### Environment
 
 * __$SOURCEZAP\_CLONEURL__ <br>
   The URL of a git repository  <br>
