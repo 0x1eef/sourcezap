@@ -1,4 +1,4 @@
-v?.?.?
+v0.2.0
 
 * Set "diff.renameLimit" to unlimited
   After this change, sourcezap always forwards "-l0" to "git diff"
