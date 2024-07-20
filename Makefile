@@ -5,7 +5,7 @@ LIBEXECDIR = $(PREFIX)/libexec/sourcezap
 SHAREDIR = $(PREFIX)/share/sourcezap
 
 install:
-	@find bin/ libexec/ share/ -type d -exec install -v -d $(PREFIX)/"{}" \;
+	@find bin/ libexec/ share/ man/ -type d -exec install -v -d $(PREFIX)/"{}" \;
 	@find bin/ libexec/ -type f -exec install -v -m 0755 "{}" $(PREFIX)/"{}" \;
 	@find share/ man/ -type f -exec install -v -m 0644 "{}" $(PREFIX)/"{}" \;
 
