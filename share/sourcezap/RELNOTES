@@ -2,7 +2,7 @@
 
 * Fix Makefile
   The mandoc directory wasn't created properly.
-  it became obvious when building the port
+  It became obvious when building the port
   into a temporary staging directory
 
 = v0.2.0
