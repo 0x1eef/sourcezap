@@ -1,19 +1,29 @@
-v0.2.0
+= v0.2.1
 
-* Set "diff.renameLimit" to unlimited
-  After this change, sourcezap always forwards "-l0" to "git diff"
+* Fix Makefile
+  The mandoc directory wasn't created properly.
+  it became obvious when building the port
+  into a temporary staging directory
 
-* Replace utils/gitexec with utils/git/run
-  After this change, we talk to git via utils/git/run
+= v0.2.0
 
-* Add utils/git/
+- Set "diff.renameLimit" to unlimited
+  After this change, sourcezap always
+  forwards "-l0" to "git diff"
+
+- Replace utils/gitexec with utils/git/run
+  After this change, we talk to git via
+  utils/git/run
+
+- Add utils/git/
   A dedicated directory for git-related scripts
 
-* Remove "set -x"
+- Remove "set -x"
   After this change, sourcezap emits less output
 
-* Remove scripts
-  Remove "utils/printok", "utils/printerr", "utils/git-rev"
+- Remove scripts
+  Remove "utils/printok", "utils/printerr",
+  "utils/git-rev"
 
-* Add documentation
+- Add documentation
   Covers README.md and sourcezap.8
