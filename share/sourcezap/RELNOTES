@@ -1,3 +1,10 @@
+v?.?.?
+
+| Recover from "git checkout" failure
+After this change, "git checkout" exiting unsuccessfully
+towards the end of "sourcezap clone" no longer causes
+sourcezap to exit as well
+
 v0.2.1
 
 | Fix Makefile
