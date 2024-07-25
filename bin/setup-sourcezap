@@ -5,8 +5,6 @@ set -e
 # variables
 localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/..)}
 libexec="${localbase}"/libexec/sourcezap
-conf=$(cat "${localbase}"/share/sourcezap/doas.conf)
-doas="${localbase}"/etc/doas.conf
 
 ##
 # functions
@@ -14,25 +12,19 @@ doas="${localbase}"/etc/doas.conf
 
 ##
 # main
-if [ "$(id -u)" != "0" ]; then
+if [ "$(id -u)" = "0" ]; then
+    if id -u _sourcezap > /dev/null 2>&1; then
+        printok "_sourcezap user exists"
+    else
+        pw useradd -n _sourcezap \
+                   -c "sourcezap user" \
+                   -m \
+                   -s /sbin/nologin
+        chmod u=rwX,g=rX,o= /home/_sourcezap/
+        printok "_sourcezap user created"
+    fi
+    "${libexec}"/setup/setup-doas
+else
     printerr "you must be root"
     exit 1
-fi
-
-if id -u _sourcezap > /dev/null 2>&1; then
-    printok "_sourcezap user exists"
-else
-    pw useradd -n _sourcezap \
-        -c "sourcezap user" \
-        -m \
-        -s /sbin/nologin
-    chmod u=rwX,g=rX,o= /home/_sourcezap/
-    printok "create _sourcezap user"
-fi
-
-if grep -F "^${conf}$" "${doas}" > /dev/null 2>&1; then
-    printok "${doas} is up to date"
-else
-    echo "$conf" >> "$doas"
-    printok "update ${doas} (note: review the update)"
 fi
