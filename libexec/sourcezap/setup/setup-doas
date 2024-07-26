@@ -11,18 +11,13 @@ sharedir="${localbase}"/share/sourcezap
 # functions
 . "${libexec}"/functions/print.sh
 
-install_doasconf()
-{
-    src="${sharedir}"/doas.conf
-    dest="${localbase}"/etc/doas.conf
-    if grep -Fq "$(cat "${src}")" "${dest}"; then
-        printok "doas.conf is up to date"
-    else
-        cat "${src}" >> "${dest}"
-        printok "${dest} updated"
-    fi
-}
-
 ##
 # main
-install_doasconf
+src="${sharedir}"/doas.conf
+dest="${localbase}"/etc/doas.conf
+if grep -Fq "$(cat "${src}")" "${dest}"; then
+    printok "doas.conf is up to date"
+else
+    cat "${src}" >> "${dest}"
+    printok "${dest} updated"
+fi
