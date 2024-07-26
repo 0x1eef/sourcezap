@@ -1,7 +1,7 @@
 v?.?.?
 
 | Add libexec/sourcezap/setup/setup-user
-  Move the code that handles the creation of the '_sourcezap'
+  Move the code that handles the creation of the "_sourcezap"
   user from bin/setup-sourcezap to the libexec/sourcezap/setup/
   directory
 
