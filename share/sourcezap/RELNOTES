@@ -1,5 +1,10 @@
 v?.?.?
 
+| Add libexec/sourcezap/setup/setup-user
+Move the code that handles the creation of the '_sourcezap'
+user from bin/setup-sourcezap to the libexec/sourcezap/setup/
+directory
+
 | Recover from "git checkout" failure
 After this change, "git checkout" exiting unsuccessfully
 towards the end of "sourcezap clone" no longer causes

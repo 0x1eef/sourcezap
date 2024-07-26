@@ -10,8 +10,9 @@ can be installed into `/usr/src/` by root.
 
 #### CLI: setup-sourcezap
 
-This command should be run after installing sourcezap for
-the first time:
+`setup-sourcezap` should be run after installing
+sourcezap for the first time. <br> There is no harm in
+running `setup-sourcezap` multiple times:
 
     # Add the '_sourcezap' user, group and home directory
     # This command requires root privileges

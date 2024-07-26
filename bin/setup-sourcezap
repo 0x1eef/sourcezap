@@ -13,16 +13,7 @@ libexec="${localbase}"/libexec/sourcezap
 ##
 # main
 if [ "$(id -u)" = "0" ]; then
-    if id -u _sourcezap > /dev/null 2>&1; then
-        printok "_sourcezap user exists"
-    else
-        pw useradd -n _sourcezap \
-                   -c "sourcezap user" \
-                   -m \
-                   -s /sbin/nologin
-        chmod u=rwX,g=rX,o= /home/_sourcezap/
-        printok "_sourcezap user created"
-    fi
+    "${libexec}"/setup/setup-user
     "${libexec}"/setup/setup-doas
 else
     printerr "you must be root"
