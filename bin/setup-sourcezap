@@ -8,6 +8,7 @@ libexec="${localbase}"/libexec/sourcezap
 
 ##
 # functions
+# shellcheck source=/dev/null
 . "${libexec}"/functions/print.sh
 
 ##

@@ -16,7 +16,7 @@ user="_sourcezap"
 if id -u "${user}" > /dev/null 2>&1; then
    printok "${user} user exists"
 else
-    pw useradd
+    pw useradd \
        -n "${user}" \
        -c "sourcezap user" \
        -m \
