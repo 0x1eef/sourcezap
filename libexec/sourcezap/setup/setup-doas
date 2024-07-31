@@ -9,6 +9,7 @@ sharedir="${localbase}"/share/sourcezap
 
 ##
 # functions
+# shellcheck source=/dev/null
 . "${libexec}"/functions/print.sh
 
 ##
