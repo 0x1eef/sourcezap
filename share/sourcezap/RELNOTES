@@ -1,4 +1,4 @@
-* v?.?.?
+* v1.0.0
 
 ** Add libexec/sourcezap/setup/setup-user
 setup-user sets up the '_sourcezap' user and environment
