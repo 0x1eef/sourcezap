@@ -6,42 +6,49 @@ The copy of the source tree is maintained by members of
 the `_sourcezap` group, and a copy of the source tree
 can be installed into `/usr/src/` by root.
 
-## Examples
+## CLI
 
-#### CLI: setup-sourcezap
+### CLI: setup-sourcezap
 
-`setup-sourcezap` should be run after installing
-sourcezap for the first time. <br> There is no harm in
-running `setup-sourcezap` multiple times:
+`setup-sourcezap` should be run after installing sourcezap for
+the first time. <br> There is no harm in running `setup-sourcezap`
+multiple times:
 
     # Add the '_sourcezap' user, group and home directory
     # This command requires root privileges
     root@localhost# setup-sourcezap
 
-#### CLI: sourcezap
+### CLI: group
 
-    # Clone the HardenedBSD source tree into /home/_sourcezap/src/
-    # This command is delegated to the '_sourcezap' user
-    user@localhost$ sourcezap clone
+The following commands are delegated to the `_sourcezap` user and
+restricted to members of the `_sourcezap` group. The restrictions
+are enforced by sourcezap and to a lesser extent by
+[doas(1)](https://man.openbsd.org/doas):
 
-    # Pull updates into /home/_sourcezap/src/
-    # This command is delegated to the '_sourcezap' user
-    user@localhost$ sourcezap pull
+* **sourcezap clone** <br>
+Clone the HardenedBSD ports tree into `/home/_sourcezap/src/` <br>
 
-    # Checkout a branch other than the default: hardened/14-stable/master
-    # This command is delegated to the '_sourcezap' user
-    user@localhost$ sourcezap checkout hardened/13-stable/master
+* **sourcezap pull** <br>
+Pull updates into `/home/_sourcezap/src/` <br>
 
-    # Install /home/_sourcezap/src/ into /usr/src/
-    # This command requires root privileges
-    root@localhost# sourcezap install
+* **sourcezap checkout** <br>
+Checkout a branch other than the default: `hardened/14-stable/master` <br>
 
-    # Remove the contents of /usr/src/ and /home/_sourcezap/src/
-    # This command requires root privileges
-    root@localhost# sourcezap rm
+* **sourcezap sh** <br>
+Run `/bin/sh` within `/home/_sourcezap/src/` <br>
 
+### CLI: superuser
 
-#### Environment
+The following commands are restricted to root. <br>
+The restrictions are enforced by sourcezap:
+
+* **sourcezap rm** <br>
+Remove the contents of `/usr/src/` and `/home/_sourcezap/src/` <br>
+
+* **sourcezap install** <br>
+Install `/home/_sourcezap/src/` into `/usr/src/` <br>
+
+## Environment
 
 * __$SOURCEZAP\_CLONEURL__ <br>
   The URL of a git repository  <br>
@@ -53,15 +60,10 @@ running `setup-sourcezap` multiple times:
 
 ## Install
 
-#### Package
-
 sourcezap is available
-[from the HardenedBSD ports tree](https://git.HardenedBSD.org/HardenedBSD/ports/-/tree/HardenedBSD/main/hardenedbsd/sourcezap). <br>
-`pkg install sourcezap` should work too but expect slower updates.
-
-#### Git
-
-The most recent version of sourcezap can be installed via git:
+[from the HardenedBSD ports tree](https://git.HardenedBSD.org/HardenedBSD/ports/-/tree/HardenedBSD/main/hardenedbsd/sourcezap).
+`pkg install sourcezap` should work too but expect slower updates. The most
+recent version of sourcezap can be installed via git:
 
     # Clone
     user@localhost$ git clone https://git.hardenedbsd.org/0x1eef/sourcezap.git
