@@ -20,13 +20,14 @@ if [ "$(id -u)" = "0" ]; then
     exit 1
 fi
 
+if ! "${libexec}"/utils/issourcezap-member; then
+   printerr "$(id -un) is not a member of _sourcezap"
+   exit 1
+fi
+
 if [ ! -e "${gitdir}" ]; then
     printerr "try 'sourcezap clone' instead"
     exit 1
-fi
-
-if ! "${libexec}"/utils/issourcezap-member; then
-   printerr "$(id -un) is not a member of _sourcezap"
 fi
 
 cd "${gitdir}"
