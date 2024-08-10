@@ -1,7 +1,7 @@
 * vNEXT
 
 ** Add libexec/sourcezap/commands/sourcezap-sh
-Runs /bin/sh within /home/_sourcezap/ports as the '_sourcezap' user
+Runs /bin/sh within /home/_sourcezap/src/ as the '_sourcezap' user
 
 * v1.0.0
 
