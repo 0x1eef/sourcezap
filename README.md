@@ -4,7 +4,7 @@ sourcezap is a utility that manages a local copy of the
 [HardenedBSD source tree](https://git.HardenedBSD.org/HardenedBSD/HardenedBSD).
 The copy of the source tree is maintained by members of
 the `_sourcezap` group, and the copy of the source tree
-can be installed into `/usr/ports/` by root.
+can be installed into `/usr/src/` by root.
 
 ## CLI
 
@@ -26,7 +26,7 @@ are enforced by sourcezap and to a lesser extent by
 [doas(1)](https://man.openbsd.org/doas):
 
 * **sourcezap clone** <br>
-Clone the HardenedBSD ports tree into `/home/_sourcezap/src/` <br>
+Clone the HardenedBSD source tree into `/home/_sourcezap/src/` <br>
 
 * **sourcezap pull** <br>
 Pull updates into `/home/_sourcezap/src/` <br>
