@@ -8,15 +8,19 @@ can be installed into `/usr/src/` by root.
 
 ## CLI
 
-### CLI: setup-sourcezap
+### CLI: setup
 
-`setup-sourcezap` should be run after installing sourcezap for
-the first time. <br> There is no harm in running `setup-sourcezap`
+`sourcezap setup` should be run after installing sourcezap for
+the first time. <br> There is no harm in running `sourcezap setup`
 multiple times:
 
     # Add the '_sourcezap' user, group and home directory
     # This command requires root privileges
-    root@localhost# setup-sourcezap
+    root@localhost# sourcezap setup
+
+    # Reverse the changes made by 'sourcezap setup'
+    # This command requires root privileges
+    root@localhost# sourcezap teardown
 
 ### CLI: group
 

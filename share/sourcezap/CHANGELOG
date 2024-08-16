@@ -1,5 +1,8 @@
 * vNEXT
 
+** Add 'sourcezap setup', 'sourcezap teardown'
+Replaces and enhances 'setup-sourcezap'
+
 ** Add libexec/sourcezap/commands/sourcezap-sh
 Runs /bin/sh within /home/_sourcezap/src/ as the '_sourcezap' user
 

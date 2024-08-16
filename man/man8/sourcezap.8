@@ -6,6 +6,8 @@
 .Nd manages a copy of the HardenedBSD source tree
 .Sh SYNOPSIS
 .br
+.Nm sourcezap setup
+.Nm sourcezap teardown
 .Nm sourcezap clone
 .Nm sourcezap pull
 .Nm sourcezap checkout
@@ -17,7 +19,22 @@ manages a copy of the HardenedBSD source tree.
 The copy of the source tree is maintained by members of
 the '_sourcezap' group, and a copy of the source tree
 can be installed into /usr/src/ by root.
-.Sh EXAMPLES
+.Sh SETUP
+.sp
+.sp
+.Nm sourcezap setup
+.br
+Setup sourcezap for the first time
+.br
+This command requires root privileges
+.Pp
+.Nm sourcezap teardown
+.br
+Reverses the changes made by 'sourcezap setup'
+.br
+This command requires root privileges
+.Pp
+.Sh COMMANDS
 .sp
 .sp
 .Nm sourcezap clone

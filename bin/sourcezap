@@ -42,6 +42,12 @@ while [ "${i}" -le "$#" ]; do
 done
 
 case $1 in
+    "setup")
+	"${libexec}"/commands/sourcezap-setup
+	;;
+    "teardown")
+	"${libexec}"/commands/sourcezap-teardown
+	;;
     "clone")
         require_dependency "git doas"
         "${libexec}"/commands/sourcezap-clone "${giturl}" "${gitdir}" "${defaultbranch}"
@@ -68,7 +74,11 @@ case $1 in
     *)
         printf "Usage: sourcezap COMMAND [OPTIONS]\n"
         printf "\n"
-        printf "Commands:\n"
+        printf "Setup\n"
+        printf "  setup       Setup sourcezap for the first time\n"
+        printf "  teardown    Reverse the changes made by 'sourcezap setup'\n"
+        printf "\n"
+        printf "General\n"
         printf "  clone       Clone the HardenedBSD source tree\n"
         printf "  pull        Pull source tree updates\n"
         printf "  checkout    Checkout a branch other than the default\n"
