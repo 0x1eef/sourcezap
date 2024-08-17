@@ -1,5 +1,8 @@
 * vNEXT
 
+** Add 'setup/setup-doas' improvements
+More likely to do what's expected, but blind spots still exist
+
 ** Add 'sourcezap setup', 'sourcezap teardown'
 Replaces and enhances 'setup-sourcezap'
 
