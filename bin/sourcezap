@@ -43,11 +43,11 @@ done
 
 case $1 in
     "setup")
-	"${libexec}"/commands/sourcezap-setup
-	;;
+        "${libexec}"/commands/sourcezap-setup
+        ;;
     "teardown")
-	"${libexec}"/commands/sourcezap-teardown
-	;;
+        "${libexec}"/commands/sourcezap-teardown
+        ;;
     "clone")
         require_dependency "git doas"
         "${libexec}"/commands/sourcezap-clone "${giturl}" "${gitdir}" "${defaultbranch}"
