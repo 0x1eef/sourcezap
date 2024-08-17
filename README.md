@@ -75,7 +75,7 @@ recent version of sourcezap can be installed via git:
 
     # Install
     root@localhost# make install
-    root@localhost# setup-sourcezap
+    root@localhost# sourcezap setup
 
     # Add user to '_sourcezap' group
     root@localhost# pw groupmod -n _sourcezap -m <user>
