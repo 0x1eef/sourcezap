@@ -15,6 +15,8 @@ installdir=$2
 
 erase()
 {
+    # shellcheck disable=SC3043
+    local dir
     dir="${1}"
     printf "%s  " "${dir}"
     find "${dir}" \

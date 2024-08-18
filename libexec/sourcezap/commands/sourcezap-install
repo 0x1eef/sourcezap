@@ -18,6 +18,9 @@ revfile=$3
 
 perform_update()
 {
+    # shellcheck disable=SC3043
+    local rev add del \
+          target parent parents
     rev=$(cat "${revfile}")
     add=$("${libexec}"/utils/git/get-changed-files "${gitdir}" "${rev}")
     del=$("${libexec}"/utils/git/get-removed-files "${gitdir}" "${rev}")
