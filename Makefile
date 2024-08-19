@@ -10,9 +10,8 @@ install:
 	@find share/ man/ -type f -exec install -v -m 0644 "{}" $(PREFIX)/"{}" \;
 
 deinstall:
-	rm $(BINDIR)/sourcezap
-	rm $(BINDIR)/setup-sourcezap
-	rm $(MANDIR)/sourcezap.8
+	rm -rf $(BINDIR)/sourcezap
+	rm -rf $(MANDIR)/sourcezap.8
 	rm -rf $(LIBEXECDIR)
 	rm -rf $(SHAREDIR)
 
