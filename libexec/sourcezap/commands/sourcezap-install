@@ -33,7 +33,7 @@ if [ -e "${revfile}" ]; then
 else
     ##
     # install from scratch
-    umask u=rwx,g=rx,o=
+    umask u=rwX,g=rX,o=
     "${libexec}"/utils/install/run -d "${installdir}"
     find -s . \
          -maxdepth 1 \
