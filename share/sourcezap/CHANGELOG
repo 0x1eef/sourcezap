@@ -1,13 +1,17 @@
 * vNEXT
 
+** Break up 'sourcezap-install' into multiple files
+'libexec/sourcezap/utils/install/' contains files that cover both
+a fresh install and applying an update
+
 ** Add 'setup/setup-doas' improvements
 More likely to do what's expected, but blind spots still exist
 
 ** Add 'sourcezap setup', 'sourcezap teardown'
 Replaces and enhances 'setup-sourcezap'
 
-** Add libexec/sourcezap/commands/sourcezap-sh
-Runs /bin/sh within /home/_sourcezap/src/ as the '_sourcezap' user
+** Add 'libexec/sourcezap/commands/sourcezap-sh'
+Runs '/bin/sh' within '/home/_sourcezap/src/' as the '_sourcezap' user
 
 * v1.0.0
 
