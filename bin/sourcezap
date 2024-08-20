@@ -9,7 +9,7 @@ repodir="/home/_sourcezap/src"
 repourl="${SOURCEZAP_CLONEURL:-https://git.hardenedbsd.org/hardenedbsd/hardenedbsd.git}"
 installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
 defaultbranch="hardenedbsd/main"
-revfile="${installdir}"/.sourcezap
+commitfile="${installdir}"/.sourcezap
 
 ##
 # functions
@@ -71,7 +71,7 @@ case $1 in
         ;;
     "install")
         require_dependency git doas
-        "${libexec}"/commands/sourcezap-install "${repodir}" "${installdir}" "${revfile}"
+        "${libexec}"/commands/sourcezap-install "${repodir}" "${installdir}" "${commitfile}"
         ;;
     *)
         printf "Usage: sourcezap COMMAND [OPTIONS]\n"
