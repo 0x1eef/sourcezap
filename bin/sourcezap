@@ -5,8 +5,8 @@ set -e
 # variables
 localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/..)}
 libexec="${localbase}"/libexec/sourcezap
-gitdir="/home/_sourcezap/src"
-giturl="${SOURCEZAP_CLONEURL:-https://git.hardenedbsd.org/hardenedbsd/hardenedbsd.git}"
+repodir="/home/_sourcezap/src"
+repourl="${SOURCEZAP_CLONEURL:-https://git.hardenedbsd.org/hardenedbsd/hardenedbsd.git}"
 installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
 defaultbranch="hardenedbsd/main"
 revfile="${installdir}"/.sourcezap
@@ -52,26 +52,26 @@ case $1 in
         ;;
     "clone")
         require_dependency git doas
-        "${libexec}"/commands/sourcezap-clone "${giturl}" "${gitdir}" "${defaultbranch}"
+        "${libexec}"/commands/sourcezap-clone "${repourl}" "${repodir}" "${defaultbranch}"
         ;;
     "pull")
         require_dependency git doas
-        "${libexec}"/commands/sourcezap-pull "${gitdir}"
+        "${libexec}"/commands/sourcezap-pull "${repodir}"
         ;;
     "checkout")
         require_dependency git doas
-        "${libexec}"/commands/sourcezap-checkout "${gitdir}" "${2}"
+        "${libexec}"/commands/sourcezap-checkout "${repodir}" "${2}"
         ;;
      "sh")
         require_dependency doas
-        "${libexec}"/commands/sourcezap-sh "${gitdir}"
+        "${libexec}"/commands/sourcezap-sh "${repodir}"
         ;;
     "rm")
-        "${libexec}"/commands/sourcezap-rm "${gitdir}" "${installdir}"
+        "${libexec}"/commands/sourcezap-rm "${repodir}" "${installdir}"
         ;;
     "install")
         require_dependency git doas
-        "${libexec}"/commands/sourcezap-install "${gitdir}" "${installdir}" "${revfile}"
+        "${libexec}"/commands/sourcezap-install "${repodir}" "${installdir}" "${revfile}"
         ;;
     *)
         printf "Usage: sourcezap COMMAND [OPTIONS]\n"
