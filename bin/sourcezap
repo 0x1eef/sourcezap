@@ -5,11 +5,11 @@ set -e
 # variables
 localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/..)}
 libexec="${localbase}"/libexec/sourcezap
-defaultbranch="hardened/14-stable/master"
-gitdir="/home/_sourcezap/src"
-giturl="${SOURCEZAP_CLONEURL:-https://git.hardenedbsd.org/hardenedbsd/HardenedBSD.git}"
-installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
-revision="${installdir}"/.sourcezap
+gitdir="/home/_sourcezap/ports"
+giturl="${SOURCEZAP_CLONEURL:-https://git.hardenedbsd.org/hardenedbsd/hardenedbsd.git}"
+installdir="${SOURCEZAP_INSTALLDIR:-/usr/ports}"
+defaultbranch="hardenedbsd/main"
+revfile="${installdir}"/.sourcezap
 
 ##
 # functions
@@ -18,8 +18,10 @@ revision="${installdir}"/.sourcezap
 
 require_dependency()
 {
-    deps=$1
-    for dep in $deps; do
+    # shellcheck disable=SC3043
+    local dep
+    for i in $(seq 1 ${#}); do
+        eval "dep=\$${i}"
         if ! which -s "$dep"; then
             printerr "${dep} wasn't found on \$PATH"
             exit 1
@@ -49,27 +51,27 @@ case $1 in
         "${libexec}"/commands/sourcezap-teardown
         ;;
     "clone")
-        require_dependency "git doas"
+        require_dependency git doas
         "${libexec}"/commands/sourcezap-clone "${giturl}" "${gitdir}" "${defaultbranch}"
         ;;
     "pull")
-        require_dependency "git doas"
+        require_dependency git doas
         "${libexec}"/commands/sourcezap-pull "${gitdir}"
         ;;
     "checkout")
-        require_dependency "git doas"
+        require_dependency git doas
         "${libexec}"/commands/sourcezap-checkout "${gitdir}" "${2}"
         ;;
-    "sh")
-        require_dependency "doas"
+     "sh")
+        require_dependency doas
         "${libexec}"/commands/sourcezap-sh "${gitdir}"
         ;;
     "rm")
         "${libexec}"/commands/sourcezap-rm "${gitdir}" "${installdir}"
         ;;
     "install")
-        require_dependency "git doas"
-        "${libexec}"/commands/sourcezap-install "${gitdir}" "${installdir}" "${revision}"
+        require_dependency git doas
+        "${libexec}"/commands/sourcezap-install "${gitdir}" "${installdir}" "${revfile}"
         ;;
     *)
         printf "Usage: sourcezap COMMAND [OPTIONS]\n"
