@@ -1,50 +1,52 @@
+# -*- mode: org -*-
+
 * vNEXT
 
-** Add 'libexec/sourcezap/utils/get-umask'
+**** Add 'libexec/sourcezap/utils/get-umask'
 Add a single source of truth for the mask given to umask
 by git and sourcezap-install
 
-** Break up 'sourcezap-install' into multiple files
+**** Break up 'sourcezap-install' into multiple files
 'libexec/sourcezap/utils/install/' contains files that cover both
 a fresh install and applying an update
 
-** Add 'setup/setup-doas' improvements
+**** Add 'setup/setup-doas' improvements
 More likely to do what's expected, but blind spots still exist
 
-** Add 'sourcezap setup', 'sourcezap teardown'
+**** Add 'sourcezap setup', 'sourcezap teardown'
 Replaces and enhances 'setup-sourcezap'
 
-** Add 'libexec/sourcezap/commands/sourcezap-sh'
+**** Add 'libexec/sourcezap/commands/sourcezap-sh'
 Runs '/bin/sh' within '/home/_sourcezap/src/' as the '_sourcezap' user
 
 * v1.0.0
 
-** Add libexec/sourcezap/setup/setup-user
+**** Add libexec/sourcezap/setup/setup-user
 setup-user sets up the '_sourcezap' user and environment
 
-** Recover from git-checkout failure
+**** Recover from git-checkout failure
 Recover gracefully from git-checkout failure in sourcezap-clone
 
 * v0.2.1
 
-** Fix Makefile
+**** Fix Makefile
 The mandoc directory wasn't created properly.
 It only became obvious when building the port
 into a temporary staging directory
 
 * v0.2.0
 
-** Remove git-diff limit
+**** Remove git-diff limit
 Remove file rename limit from git-diff
 
-** Replace utils/gitexec with utils/git/run
+**** Replace utils/gitexec with utils/git/run
 Communicate with git via utils/git/run
 
-** Add utils/git
+**** Add utils/git
 A dedicated directory for git-related scripts
 
-** Remove "set -x"
+**** Remove "set -x"
 Emit less output
 
-** Remove scripts
+**** Remove scripts
 Remove utils/printok, utils/printerr, utils/git-rev
