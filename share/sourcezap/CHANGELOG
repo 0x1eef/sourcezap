@@ -1,6 +1,6 @@
 # -*- mode: org -*-
 
-* vNEXT
+* v1.1.0
 
 **** Add 'libexec/sourcezap/utils/get-umask'
 Add a single source of truth for the mask given to umask
