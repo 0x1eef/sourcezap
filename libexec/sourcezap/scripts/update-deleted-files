@@ -12,7 +12,7 @@ commit=$3
 ##
 # main
 cd "${repodir}"
-files=$("${libexec}"/scripts/git/get-removed-files "${repodir}" "${commit}")
+files=$("${libexec}"/scripts/git-get-removed-files "${repodir}" "${commit}")
 for file in ${files}; do
     target="${installdir}/${file}"
     parent=$(dirname "${target}")
