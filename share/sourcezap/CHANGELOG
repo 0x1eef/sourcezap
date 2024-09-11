@@ -15,7 +15,7 @@ This new directory replaces what was formerly known
 as ~libexec/sourcezap/setup~
 
 **** Add ~libexec/sourcezap/scripts~
-This new directory rplaces what was formerly known
+This new directory replaces what was formerly known
 as ~libexec/sourcezap/utils~
 
 * v1.1.0
