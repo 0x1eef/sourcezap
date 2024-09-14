@@ -1,29 +1,28 @@
 # -*- mode: org -*-
 
-* vNEXT
+** vNEXT
 
 **** Log when ~sourcezap rm~ completes successfully
 Similar to other commands, log when the ~sourcezap rm~ command
 completes successfully
 
 **** Format log messages with program name
-This change formats log messages written to standard output
-and standard error with the pattern ~sourcezap: <message>~
+Format log messages written to standard output and standard error
+with the pattern ~sourcezap: <message>~
 
 **** Replace chmod with -M switch
-This change replaces chmod with the -M switch. The -M switch
-is given to the ~pw useradd~ command in the ~setup-user~
-script
+Replace chmod with the -M switch. The -M switch is given to the
+~pw useradd~ command in the ~setup-user~ script
 
-* v1.2.0
+** v1.2.0
 
 **** Fix ~libexec/sourcezap/scripts/setup-doas~ bug
-This change fixes a bug in ~setup-doas~ that could hang
-the ~sourcezap setup~ command
+Fix a bug in ~setup-doas~ that could hang the ~sourcezap setup~
+command
 
 **** Collapse ~libexec/sourcezap/scripts~
-This change does not try to organize script directories that
-go beyond ~libexec/sourcezap/scripts~
+Stop trying to organize script directories that go beyond
+~libexec/sourcezap/scripts~
 
 **** Add ~libexec/sourcezap/scripts/setup~
 This new directory replaces what was formerly known
@@ -33,41 +32,42 @@ as ~libexec/sourcezap/setup~
 This new directory replaces what was formerly known
 as ~libexec/sourcezap/utils~
 
-* v1.1.0
+** v1.1.0
 
 **** Add 'libexec/sourcezap/utils/get-umask'
 Add a single source of truth for the mask given to umask
 by git and sourcezap-install
 
-**** Break up 'sourcezap-install' into multiple files
-'libexec/sourcezap/utils/install/' contains files that cover both
-a fresh install and applying an update
+**** Break up ~sourcezap-install~ into multiple files
+A new directory (~libexec/sourcezap/utils/install/~) contains
+files that cover both a fresh install and applying an update
 
-**** Add 'setup/setup-doas' improvements
+**** Add ~setup/setup-doas~ improvements
 More likely to do what's expected, but blind spots still exist
 
-**** Add 'sourcezap setup', 'sourcezap teardown'
-Replaces and enhances 'setup-sourcezap'
+**** Add ~sourcezap setup~, ~sourcezap teardown~
+Replace and enhance ~setup-sourcezap~
 
-**** Add 'libexec/sourcezap/commands/sourcezap-sh'
-Runs '/bin/sh' within '/home/_sourcezap/src/' as the '_sourcezap' user
+**** Add ~libexec/sourcezap/commands/sourcezap-sh~
+A new command that can run ~/bin/sh~ within ~/home/_sourcezap/src/~
+as the ~_sourcezap~ user
 
-* v1.0.0
+** v1.0.0
 
 **** Add libexec/sourcezap/setup/setup-user
-setup-user sets up the '_sourcezap' user and environment
+~setup-user~ sets up the sourcezap user environment
 
-**** Recover from git-checkout failure
-Recover gracefully from git-checkout failure in sourcezap-clone
+**** Recover from ~git checkout~ failure
+Recover gracefully from failure in sourcezap-clone
 
-* v0.2.1
+** v0.2.1
 
 **** Fix Makefile
-The mandoc directory wasn't created properly.
-It only became obvious when building the port
-into a temporary staging directory
+The mandoc directory wasn't created properly. It only
+became obvious when building the port into a temporary
+staging directory
 
-* v0.2.0
+** v0.2.0
 
 **** Remove git-diff limit
 Remove file rename limit from git-diff
