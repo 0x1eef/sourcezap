@@ -20,12 +20,12 @@ erase()
     dir="${1}"
     printf "%s  " "${dir}"
     find "${dir}" \
-        -maxdepth 1 \
-        \! -name "." \
-        \! -name ".." \
-        \! -name "src" \
-        -exec printf . \; \
-        -exec rm -rf "{}" \;
+         -maxdepth 1 \
+         \! -name "." \
+         \! -name ".." \
+         \! -name "src" \
+         -exec printf . \; \
+         -exec rm -rf "{}" \;
     echo
 }
 
@@ -45,11 +45,14 @@ while true; do
     read -r r
     if [ "${r}" = "1" ]; then
         erase "${repodir}"
+        printok "remove complete"
     elif [ "${r}" = "2" ]; then
         erase "${installdir}"
+        printok "remove complete"
     elif [ "${r}" = "3" ]; then
         erase "${repodir}"
         erase "${installdir}"
+        printok "remove complete"
     elif [ "${r}" = "4" ]; then
         break
     else

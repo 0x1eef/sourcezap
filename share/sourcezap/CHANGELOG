@@ -2,6 +2,10 @@
 
 * vNEXT
 
+**** Log when ~sourcezap rm~ completes successfully
+Similar to other commands, log when the ~sourcezap rm~ command
+completes successfully
+
 **** Format log messages with program name
 This change formats log messages written to standard output
 and standard error with the pattern ~sourcezap: <message>~
