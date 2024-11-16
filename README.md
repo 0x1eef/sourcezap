@@ -8,23 +8,12 @@ can be installed into `/usr/src/` by root.
 
 ## CLI
 
-### CLI: setup
+### Commands
 
-`sourcezap setup` should be run after installing sourcezap for
-the first time:
+#### Group
 
-    # Add the '_sourcezap' user, group and home directory
-    # This command requires root privileges
-    root@localhost# sourcezap setup
-
-    # Reverse the changes made by 'sourcezap setup'
-    # This command requires root privileges
-    root@localhost# sourcezap teardown
-
-### CLI: group
-
-The following commands are delegated to the `_sourcezap` user and
-restricted to members of the `_sourcezap` group:
+The following commands are restricted to members of the `_sourcezap` group,
+and delegated to the `_sourcezap` user via doas(1):
 
 * **sourcezap clone** <br>
 Clone the HardenedBSD source tree into `/home/_sourcezap/src/` <br>
@@ -38,7 +27,7 @@ Checkout a branch other than the default: `hardened/14-stable/master` <br>
 * **sourcezap sh** <br>
 Run `/bin/sh` within `/home/_sourcezap/src/` <br>
 
-### CLI: superuser
+#### Root
 
 The following commands are restricted to root:
 
