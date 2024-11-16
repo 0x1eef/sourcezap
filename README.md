@@ -11,8 +11,7 @@ can be installed into `/usr/src/` by root.
 ### CLI: setup
 
 `sourcezap setup` should be run after installing sourcezap for
-the first time. <br> There is no harm in running `sourcezap setup`
-multiple times:
+the first time:
 
     # Add the '_sourcezap' user, group and home directory
     # This command requires root privileges
@@ -25,9 +24,7 @@ multiple times:
 ### CLI: group
 
 The following commands are delegated to the `_sourcezap` user and
-restricted to members of the `_sourcezap` group. The restrictions
-are enforced by sourcezap and to a lesser extent by
-[doas(1)](https://man.openbsd.org/doas):
+restricted to members of the `_sourcezap` group:
 
 * **sourcezap clone** <br>
 Clone the HardenedBSD source tree into `/home/_sourcezap/src/` <br>
@@ -43,8 +40,7 @@ Run `/bin/sh` within `/home/_sourcezap/src/` <br>
 
 ### CLI: superuser
 
-The following commands are restricted to root. <br>
-The restrictions are enforced by sourcezap:
+The following commands are restricted to root:
 
 * **sourcezap rm** <br>
 Remove the contents of `/usr/src/` and `/home/_sourcezap/src/` <br>
@@ -66,19 +62,12 @@ Install `/home/_sourcezap/src/` into `/usr/src/` <br>
 
 sourcezap is available
 [from the HardenedBSD ports tree](https://git.HardenedBSD.org/HardenedBSD/ports/-/tree/HardenedBSD/main/hardenedbsd/sourcezap).
-`pkg install sourcezap` should work too but expect slower updates. The most
-recent version of sourcezap can be installed via git:
+`pkg install sourcezap` should work too but expect slower updates. After installation
+of sourcezap, `sourcezap setup` should be run as root and one or more users should
+be added to the `_sourcezap` group:
 
-    # Clone
-    user@localhost$ git clone https://git.hardenedbsd.org/0x1eef/sourcezap.git
-    user@localhost$ cd sourcezap
-
-    # Install
-    root@localhost# make install
     root@localhost# sourcezap setup
-
-    # Add user to '_sourcezap' group
-    root@localhost# pw groupmod -n _sourcezap -m <user>
+    root@localhost# pw groupmod -n _sourcezap -m myuser
 
 ## Requirements
 
