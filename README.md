@@ -21,9 +21,6 @@ Clone the HardenedBSD source tree into `/home/_sourcezap/src/` <br>
 * **sourcezap pull** <br>
 Pull updates into `/home/_sourcezap/src/` <br>
 
-* **sourcezap checkout** <br>
-Checkout a branch other than the default: `hardened/14-stable/master` <br>
-
 * **sourcezap sh** <br>
 Run `/bin/sh` within `/home/_sourcezap/src/` <br>
 
