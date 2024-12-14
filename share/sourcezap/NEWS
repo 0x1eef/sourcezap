@@ -2,6 +2,9 @@
 
 * vNEXT
 
+** Add ~sourcezap sh~ to man page
+The ~sourcezap sh~ command was missing from the SYNOPIS section
+
 ** Remove ~sourcezap checkout~
 Remove the ~sourcezap checkout~ command. It has been replaced
 by using ~sourcezap sh~ alongside ~git checkout <branch>~
