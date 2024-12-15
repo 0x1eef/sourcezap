@@ -25,8 +25,8 @@ if ! "${libexec}"/scripts/is-sourcezap-member; then
     exit 1
 fi
 
-if [ ! -e "${repodir}/.git" ]; then
-    printerr "try 'sourcezap clone' instead"
+if [ ! -e "${repodir}"/.git ]; then
+    printerr "repository should be cloned first"
     exit 1
 fi
 
