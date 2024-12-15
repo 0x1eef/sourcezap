@@ -2,6 +2,10 @@
 
 * vNEXT
 
+** Add simplification of logging in setup-{doas,user}
+More consistent with other log messages.
+See ~fgrep -rn printok libexec/ bin/~
+
 ** Add ~sourcezap sh~ to man page
 The ~sourcezap sh~ command was missing from the SYNOPIS section
 
