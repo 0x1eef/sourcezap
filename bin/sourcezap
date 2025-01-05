@@ -6,7 +6,7 @@ set -e
 localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/..)}
 libexec="${localbase}"/libexec/sourcezap
 repodir="/home/_sourcezap/src"
-repourl="${SOURCEZAP_CLONEURL:-https://git.hardenedbsd.org/hardenedbsd/hardenedbsd.git}"
+repourl="${SOURCEZAP_CLONEURL:-https://github.com/HardenedBSD/HardenedBSD.git}"
 installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
 defaultbranch="hardenedbsd/main"
 commitfile="${installdir}"/.sourcezap

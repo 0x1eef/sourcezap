@@ -38,7 +38,7 @@ Install `/home/_sourcezap/src/` into `/usr/src/` <br>
 
 * __$SOURCEZAP\_CLONEURL__ <br>
   The URL of a git repository  <br>
-  Default: https://git.HardenedBSD.org/HardenedBSD/HardenedBSD.git
+  Default: https://github.com/HardenedBSD/HardenedBSD.git
 
 * __$SOURCEZAP\_INSTALLDIR__ <br>
   The directory where the source tree will be installed <br>

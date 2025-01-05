@@ -2,6 +2,14 @@
 
 * vNEXT
 
+** Default to GitHub.com
+By default ~sourcezap clone~ now clones from GitHub.com. This
+is both faster, and a little more reliable than cloning from
+https://git.hardenedbsd.org
+
+The previous default can be restored by setting the environment
+variable ~${SOURCEZAP_CLONEURL}~ before running ~sourcezap clone~
+
 ** Revisit log messages
 More consistent with other log messages.
 See
