@@ -2,9 +2,8 @@
 set -e
 
 ##
-# variables
-localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/../../..)}
-libexec="${localbase}"/libexec/sourcezap
+# variable
+libexec="$(dirname "$0")"/..
 user=_sourcezap
 repodir="${1}"
 

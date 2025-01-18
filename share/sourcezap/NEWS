@@ -2,6 +2,12 @@
 
 * vNEXT
 
+**** Replace ${LOCALBASE} with relative paths
+This change replaces the use of ${LOCALBASE} with paths that
+are relative to ~$(dirname "${0}")/..~ instead. In the process
+two variables (~${localbase}, ${libexec}~) have became one
+variable (~${libexec}~)
+
 **** Default to GitHub.com
 By default ~sourcezap clone~ now clones from GitHub.com. This
 is both faster, and a little more reliable than cloning from
@@ -13,8 +19,8 @@ variable ~${SOURCEZAP_CLONEURL}~ before running ~sourcezap clone~
 **** Revisit log messages
 More consistent with other log messages.
 See
-*** ~fgrep -rn printok libexec/ bin/~
-*** ~fgrep -rn printerr libexec/ bin/~
+***** ~fgrep -rn printok libexec/ bin/~
+***** ~fgrep -rn printerr libexec/ bin/~
 
 **** Add ~sourcezap sh~ to man page
 The ~sourcezap sh~ command was missing from the SYNOPIS section
