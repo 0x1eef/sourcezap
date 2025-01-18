@@ -6,33 +6,41 @@ The copy of the source tree is maintained by members of
 the `_sourcezap` group, and the copy of the source tree
 can be installed into `/usr/src/` by root.
 
-## CLI
+sourcezap separates commands according to the role of a user. Certain
+commands can only be run by members of the `_sourcezap` group, and
+certain commands can only be run by a superuser (eg root). Group commands
+are delegated to the `_sourcezap` user rather than being run as the
+user invoking a given command.
 
-### Commands
+## CLI
 
 #### Group
 
 The following commands are restricted to members
 of the `_sourcezap` group, and delegated to the
-`_sourcezap` user via [doas(1)](https://man.openbsd.org/doas):
+`_sourcezap` user via [doas(1)](https://man.openbsd.org/doas).
+The configuration and initial setup of [doas(1)](https://man.openbsd.org/doas)
+and `/home/_sourcezap` is automated via the `sourcezap setup`
+command. See the [Install](#install) section for more details:
 
-* **sourcezap clone** <br>
+* sourcezap clone <br>
 Clone the HardenedBSD source tree into `/home/_sourcezap/src/` <br>
 
-* **sourcezap pull** <br>
+* sourcezap pull <br>
 Pull updates into `/home/_sourcezap/src/` <br>
 
-* **sourcezap sh** <br>
+* sourcezap sh <br>
 Run `/bin/sh` within `/home/_sourcezap/src/` <br>
 
-#### Root
+#### Superuser
 
-The following commands are restricted to root:
+The following commands are restricted to root, or user id 0. <br>
+Permission to run the following commands is denied for any other user:
 
-* **sourcezap rm** <br>
+* sourcezap rm <br>
 Remove the contents of `/usr/src/` and `/home/_sourcezap/src/` <br>
 
-* **sourcezap install** <br>
+* sourcezap install <br>
 Install `/home/_sourcezap/src/` into `/usr/src/` <br>
 
 ## Environment
