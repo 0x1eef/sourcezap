@@ -2,7 +2,7 @@
 
 * vNEXT
 
-** Default to GitHub.com
+**** Default to GitHub.com
 By default ~sourcezap clone~ now clones from GitHub.com. This
 is both faster, and a little more reliable than cloning from
 https://git.hardenedbsd.org
@@ -10,13 +10,13 @@ https://git.hardenedbsd.org
 The previous default can be restored by setting the environment
 variable ~${SOURCEZAP_CLONEURL}~ before running ~sourcezap clone~
 
-** Revisit log messages
+**** Revisit log messages
 More consistent with other log messages.
 See
 *** ~fgrep -rn printok libexec/ bin/~
 *** ~fgrep -rn printerr libexec/ bin/~
 
-** Add ~sourcezap sh~ to man page
+**** Add ~sourcezap sh~ to man page
 The ~sourcezap sh~ command was missing from the SYNOPIS section
 
 ** Remove ~sourcezap checkout~
@@ -25,89 +25,89 @@ by using ~sourcezap sh~ alongside ~git checkout <branch>~
 
 * v1.2.1
 
-** Install ~doas.conf~
+**** Install ~doas.conf~
 When ~${PREFIX}/etc/doas.conf~ does not exist the ~setup-doas~
 script will try to install ~/usr/local/etc/doas.conf~ with
 ~root:wheel~ as the owner, and with ~u=rw,go=~ as the filemode
 
-** Log when ~sourcezap rm~ completes successfully
+**** Log when ~sourcezap rm~ completes successfully
 Similar to other commands, log when the ~sourcezap rm~ command
 completes successfully
 
-** Format log messages with program name
+**** Format log messages with program name
 Format log messages written to standard output and standard error
 with the pattern ~sourcezap: <message>~
 
-** Replace chmod with -M switch
+**** Replace chmod with -M switch
 Replace chmod with the -M switch. The -M switch is given to the
 ~pw useradd~ command in the ~setup-user~ script
 
 * v1.2.0
 
-** Fix ~libexec/sourcezap/scripts/setup-doas~ bug
+**** Fix ~libexec/sourcezap/scripts/setup-doas~ bug
 Fix a bug in ~setup-doas~ that could hang the ~sourcezap setup~
 command
 
-** Collapse ~libexec/sourcezap/scripts~
+**** Collapse ~libexec/sourcezap/scripts~
 Stop trying to organize script directories that go beyond
 ~libexec/sourcezap/scripts~
 
-** Add ~libexec/sourcezap/scripts/setup~
+**** Add ~libexec/sourcezap/scripts/setup~
 This new directory replaces what was formerly known
 as ~libexec/sourcezap/setup~
 
-** Add ~libexec/sourcezap/scripts~
+**** Add ~libexec/sourcezap/scripts~
 This new directory replaces what was formerly known
 as ~libexec/sourcezap/utils~
 
 * v1.1.0
 
-** Add 'libexec/sourcezap/utils/get-umask'
+**** Add 'libexec/sourcezap/utils/get-umask'
 Add a single source of truth for the mask given to umask
 by git and sourcezap-install
 
-** Break up ~sourcezap-install~ into multiple files
+**** Break up ~sourcezap-install~ into multiple files
 A new directory (~libexec/sourcezap/utils/install/~) contains
 files that cover both a fresh install and applying an update
 
-** Add ~setup/setup-doas~ improvements
+**** Add ~setup/setup-doas~ improvements
 More likely to do what's expected, but blind spots still exist
 
-** Add ~sourcezap setup~, ~sourcezap teardown~
+**** Add ~sourcezap setup~, ~sourcezap teardown~
 Replace and enhance ~setup-sourcezap~
 
-** Add ~libexec/sourcezap/commands/sourcezap-sh~
+**** Add ~libexec/sourcezap/commands/sourcezap-sh~
 A new command that can run ~/bin/sh~ within ~/home/_sourcezap/src/~
 as the ~_sourcezap~ user
 
 * v1.0.0
 
-** Add libexec/sourcezap/setup/setup-user
+**** Add libexec/sourcezap/setup/setup-user
 ~setup-user~ sets up the sourcezap user environment
 
-** Recover from ~git checkout~ failure
+**** Recover from ~git checkout~ failure
 Recover gracefully from failure in sourcezap-clone
 
 * v0.2.1
 
-** Fix Makefile
+**** Fix Makefile
 The mandoc directory wasn't created properly. It only
 became obvious when building the port into a temporary
 staging directory
 
 * v0.2.0
 
-** Remove git-diff limit
+**** Remove git-diff limit
 Remove file rename limit from git-diff
 
-** Replace utils/gitexec with utils/git/run
+**** Replace utils/gitexec with utils/git/run
 Communicate with git via utils/git/run
 
-** Add utils/git
+**** Add utils/git
 A dedicated directory for git-related scripts
 
-** Remove "set -x"
+**** Remove "set -x"
 Emit less output
 
-** Remove scripts
+**** Remove scripts
 Remove utils/printok, utils/printerr, utils/git-rev
