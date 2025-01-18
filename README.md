@@ -12,8 +12,9 @@ can be installed into `/usr/src/` by root.
 
 #### Group
 
-The following commands are restricted to members of the `_sourcezap` group,
-and delegated to the `_sourcezap` user via doas(1):
+The following commands are restricted to members
+of the `_sourcezap` group, and delegated to the
+`_sourcezap` user via [doas(1)](https://man.openbsd.org/doas):
 
 * **sourcezap clone** <br>
 Clone the HardenedBSD source tree into `/home/_sourcezap/src/` <br>
@@ -62,10 +63,10 @@ be added to the `_sourcezap` group:
 
 ## Sources
 
-* [GitHub](https://github.com/0x1eef/sourcezap)
-* [GitLab](https://gitlab.com/0x1eef/sourcezap)
-* [git.HardenedBSD.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/sourcezap)
-* [brew.bsd.cafe/@0x1eef](https://brew.bsd.cafe/0x1eef/sourcezap)
+* [github.com/@0x1eef](https://github.com/0x1eef/sourcezap)
+* [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/sourcezap)
+* [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/sourcezap)
+* [bsd.cafe/@0x1eef](https://brew.bsd.cafe/0x1eef/sourcezap)
 
 ## License
 
