@@ -1,13 +1,13 @@
 ## About
 
-sourcezap is a utility that manages a local copy of the
+The sourcezap utility manages a local copy of the
 [HardenedBSD source tree](https://git.HardenedBSD.org/HardenedBSD/HardenedBSD).
 The copy of the source tree is maintained by members of
 the `_sourcezap` group, and the copy of the source tree
 can be installed into `/usr/src/` by root.
 
-sourcezap separates commands according to the role of a user. Certain
-commands can only be run by members of the `_sourcezap` group, and
+The sourcezap utility separates commands according to the role of a user.
+Certain commands can only be run by members of the `_sourcezap` group, and
 certain commands can only be run by a superuser (eg root). Group commands
 are delegated to the `_sourcezap` user rather than being run as the
 user invoking a given command.
@@ -55,14 +55,33 @@ Install `/home/_sourcezap/src/` into `/usr/src/` <br>
 
 ## Install
 
+#### Package
+
 sourcezap is available
-[from the HardenedBSD ports tree](https://git.HardenedBSD.org/HardenedBSD/ports/-/tree/HardenedBSD/main/hardenedbsd/sourcezap).
-`pkg install sourcezap` should work too but expect slower updates. After installation
-of sourcezap, `sourcezap setup` should be run as root and one or more users should
-be added to the `_sourcezap` group:
+[from the HardenedBSD src tree](https://git.HardenedBSD.org/HardenedBSD/ports/-/tree/HardenedBSD/main/hardenedbsd/sourcezap).
+<br>
+`pkg install sourcezap` should work too but expect slower updates.
+
+#### Source
+
+The first step is to clone the repository. <br>
+Afterwards sourcezap can be installed (and deinstalled) through `make`:
+
+    user@localhost$ git clone https://github.com/0x1eef/sourcezap
+    user@localhost$ cd sourcezap
+    root@localhost# make install
+    root@localhost# make deinstall
+
+#### Configuration
+
+After installation is complete the sourcezap environment should be setup.
+That involves the creation of the `_sourcezap` user and group, as well as
+the creation of `/home/_sourcezap`. A user should also be added to the
+`_sourcezap` group. The process is mostly automated:
 
     root@localhost# sourcezap setup
-    root@localhost# pw groupmod -n _sourcezap -m myuser
+    root@localhost# pw usermod <user> -g _sourcezap # Add group member
+    root@localhost# sourcezap teardown              # Optional - reverse 'sourcezap setup'
 
 ## Requirements
 
