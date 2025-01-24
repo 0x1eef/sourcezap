@@ -6,11 +6,11 @@ The copy of the source tree is maintained by members of
 the `_sourcezap` group, and the copy of the source tree
 can be installed into `/usr/src/` by root.
 
-Commands in sourcezap are categorized by user roles. Certain commands
-are restricted to members of the `_sourcezap` group, while others require
-superuser privileges. Group commands are delegated to the `_sourcezap` user
-via the [doas(1)](https://man.openbsd.org/doas) utility instead of being
-run by the user invoking a command.
+Certain sourcezap commands are restricted to members of the
+`_sourcezap` group, while others require superuser privileges.
+Group commands are delegated to the `_sourcezap` user via the
+[doas(1)](https://man.openbsd.org/doas) utility instead of
+being run by the user running a given command.
 
 ## CLI
 
