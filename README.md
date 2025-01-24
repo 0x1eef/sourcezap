@@ -8,9 +8,9 @@ can be installed into `/usr/src/` by root.
 
 Commands in sourcezap are categorized by user roles. Certain commands
 are restricted to members of the `_sourcezap` group, while others require
-superuser privileges (eg: root). Group commands are executed by the
-`_sourcezap` user via the [doas(1)](https://man.openbsd.org/doas) utility
-instead of the user invoking a given command.
+superuser privileges. Group commands are delegated to the `_sourcezap` user
+via the [doas(1)](https://man.openbsd.org/doas) utility instead of being
+run by the user invoking a command.
 
 ## CLI
 
