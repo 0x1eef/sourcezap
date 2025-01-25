@@ -3,12 +3,12 @@
 The sourcezap utility manages a local copy of the
 [HardenedBSD source tree](https://git.HardenedBSD.org/HardenedBSD/HardenedBSD).
 The copy of the source tree is maintained by members of
-the `_sourcezap` group, and the copy of the source tree
-can be installed into `/usr/src/` by root.
+the _sourcezap group, and the copy of the source tree
+can be installed into /usr/src/ by root.
 
 Certain sourcezap commands are restricted to members of the
-`_sourcezap` group, while others require superuser privileges.
-Group commands are delegated to the `_sourcezap` user via the
+_sourcezap group, while others require superuser privileges.
+Group commands are delegated to the _sourcezap user via the
 [doas(1)](https://man.openbsd.org/doas) utility instead of
 being run by the user running a given command.
 
@@ -17,20 +17,20 @@ being run by the user running a given command.
 #### Group
 
 The following commands are restricted to members
-of the `_sourcezap` group, and delegated to the
-`_sourcezap` user via [doas(1)](https://man.openbsd.org/doas).
+of the _sourcezap group, and delegated to the
+_sourcezap user via [doas(1)](https://man.openbsd.org/doas).
 The configuration and initial setup of [doas(1)](https://man.openbsd.org/doas)
-and `/home/_sourcezap` is automated via the `sourcezap setup`
+and /home/_sourcezap is automated via the `sourcezap setup`
 command. See the [Install](#install) section for more details:
 
 * sourcezap clone <br>
-Clone the HardenedBSD source tree into `/home/_sourcezap/src/` <br>
+Clone the HardenedBSD source tree into /home/_sourcezap/src/ <br>
 
 * sourcezap pull <br>
-Pull updates into `/home/_sourcezap/src/` <br>
+Pull updates into /home/_sourcezap/src/ <br>
 
 * sourcezap sh <br>
-Run `/bin/sh` within `/home/_sourcezap/src/` <br>
+Run /bin/sh within /home/_sourcezap/src/ <br>
 
 #### Superuser
 
@@ -38,10 +38,10 @@ The following commands are restricted to root, or user id 0. <br>
 Permission to run the following commands is denied for any other user:
 
 * sourcezap rm <br>
-Remove the contents of `/usr/src/` and `/home/_sourcezap/src/` <br>
+Remove the contents of /usr/src/ and /home/_sourcezap/src/ <br>
 
 * sourcezap install <br>
-Install `/home/_sourcezap/src/` into `/usr/src/` <br>
+Install /home/_sourcezap/src/ into /usr/src/ <br>
 
 ## Install
 
@@ -50,12 +50,12 @@ Install `/home/_sourcezap/src/` into `/usr/src/` <br>
 sourcezap is available
 [from the HardenedBSD src tree](https://git.HardenedBSD.org/HardenedBSD/ports/-/tree/HardenedBSD/main/hardenedbsd/sourcezap).
 <br>
-`pkg install sourcezap` should work too but expect slower updates.
+pkg install sourcezap should work too but expect slower updates.
 
 #### Source
 
 The first step is to clone the repository. <br>
-Afterwards sourcezap can be installed (and deinstalled) through `make`:
+Afterwards sourcezap can be installed (and deinstalled) through make:
 
 ```sh
 git clone https://github.com/0x1eef/sourcezap
@@ -67,9 +67,9 @@ doas -u root -- make deinstall
 #### Configuration
 
 After installation is complete the sourcezap environment should be setup.
-That involves the creation of the `_sourcezap` user and group, as well as
-the creation of `/home/_sourcezap`. A user should also be added to the
-`_sourcezap` group. The process is mostly automated:
+That involves the creation of the _sourcezap user and group, as well as
+the creation of /home/_sourcezap. A user should also be added to the
+_sourcezap group. The process is mostly automated:
 
 ```sh
 doas -u root -- sourcezap setup
