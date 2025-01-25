@@ -43,16 +43,6 @@ Remove the contents of `/usr/src/` and `/home/_sourcezap/src/` <br>
 * sourcezap install <br>
 Install `/home/_sourcezap/src/` into `/usr/src/` <br>
 
-## Environment
-
-* __$SOURCEZAP\_CLONEURL__ <br>
-  The URL of a git repository  <br>
-  Default: https://github.com/HardenedBSD/HardenedBSD.git
-
-* __$SOURCEZAP\_INSTALLDIR__ <br>
-  The directory where the source tree will be installed <br>
-  Default: /usr/src/
-
 ## Install
 
 #### Package
@@ -82,6 +72,16 @@ the creation of `/home/_sourcezap`. A user should also be added to the
     root@localhost# sourcezap setup
     root@localhost# pw groupmod _sourcezap -m <user> # Add group member
     root@localhost# sourcezap teardown               # Optional - reverse 'sourcezap setup'
+
+## Environment
+
+* __$SOURCEZAP\_CLONEURL__ <br>
+  The URL of a git repository  <br>
+  Default: https://github.com/HardenedBSD/HardenedBSD.git
+
+* __$SOURCEZAP\_INSTALLDIR__ <br>
+  The directory where the source tree will be installed <br>
+  Default: /usr/src/
 
 ## Requirements
 
