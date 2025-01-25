@@ -80,7 +80,7 @@ the creation of `/home/_sourcezap`. A user should also be added to the
 `_sourcezap` group. The process is mostly automated:
 
     root@localhost# sourcezap setup
-    root@localhost# pw groupmod _sourcezap -g <user> # Add group member
+    root@localhost# pw groupmod _sourcezap -m <user> # Add group member
     root@localhost# sourcezap teardown               # Optional - reverse 'sourcezap setup'
 
 ## Requirements
