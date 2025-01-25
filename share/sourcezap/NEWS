@@ -2,6 +2,10 @@
 
 * vNEXT
 
+**** Improve sourcezap.8
+There were a few omissions in the man page that have
+been updated and corrected
+
 **** Replace ${LOCALBASE} with relative paths
 This change replaces the use of ${LOCALBASE} with paths that
 are relative to ~$(dirname "${0}")/..~ instead. In the process
