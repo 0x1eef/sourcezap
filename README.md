@@ -57,10 +57,12 @@ sourcezap is available
 The first step is to clone the repository. <br>
 Afterwards sourcezap can be installed (and deinstalled) through `make`:
 
-    user@localhost$ git clone https://github.com/0x1eef/sourcezap
-    user@localhost$ cd sourcezap
-    root@localhost# make install
-    root@localhost# make deinstall
+```sh
+git clone https://github.com/0x1eef/sourcezap
+cd sourcezap
+doas -u root -- make install
+doas -u root -- make deinstall
+```
 
 #### Configuration
 
@@ -69,9 +71,11 @@ That involves the creation of the `_sourcezap` user and group, as well as
 the creation of `/home/_sourcezap`. A user should also be added to the
 `_sourcezap` group. The process is mostly automated:
 
-    root@localhost# sourcezap setup
-    root@localhost# pw groupmod _sourcezap -m <user> # Add group member
-    root@localhost# sourcezap teardown               # Optional - reverse 'sourcezap setup'
+```sh
+doas -u root -- sourcezap setup
+doas -u root -- pw groupmod _sourcezap -m <user> # Add group member
+doas -u root -- sourcezap teardown               # Optional - reverse 'sourcezap setup'
+```
 
 ## Environment
 
