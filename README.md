@@ -12,7 +12,7 @@ Group commands are delegated to the `_sourcezap` user via the
 [doas(1)](https://man.openbsd.org/doas) utility instead of
 being run by the user running a given command.
 
-## CLI
+## Commands
 
 #### Group
 
