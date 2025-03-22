@@ -1,5 +1,11 @@
 # -*- mode: org -*-
 
+* vNEXT
+
+**** Reimplement option parser with getopts
+This change reimplements the option parser with getopts.
+The previous implementation was complex and custom
+
 * v1.3.0
 
 **** Improve sourcezap.8

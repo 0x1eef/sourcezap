@@ -29,18 +29,35 @@ require_dependency()
     done
 }
 
+print_usage()
+{
+    printf "Usage: sourcezap COMMAND [OPTIONS]\n"
+    printf "\n"
+    printf "Setup\n"
+    printf "  setup       Setup sourcezap for the first time\n"
+    printf "  teardown    Reverse the changes made by 'sourcezap setup'\n"
+    printf "\n"
+    printf "General\n"
+    printf "  clone       Clone the HardenedBSD source tree\n"
+    printf "  pull        Pull source tree updates\n"
+    printf "  sh          Run /bin/sh within /home/_sourcezap/src/\n"
+    printf "  rm          Remove /usr/src/ and /home/_sourcezap/src/\n"
+    printf "  install     Install the source tree into /usr/src/\n"
+}
+
 ##
 # main
-i=1
-while [ "${i}" -le "$#" ]; do
-    eval "_sourcezap_option=\$${i}"
-    # shellcheck disable=SC2154
-    if [ "${_sourcezap_option}" = "-v" ]; then
-        cat "${localbase}"/share/sourcezap/VERSION
-        exit 0
-    fi
-    # shellcheck disable=SC2003
-    i=$(expr "${i}" + 1);
+while getopts "v" opt; do
+    case "${opt}" in
+        "v")
+            cat "${localbase}"/share/sourcezap/VERSION
+            exit 0
+            ;;
+        *)
+            print_usage
+            exit 1
+            ;;
+    esac
 done
 
 case $1 in
@@ -70,17 +87,7 @@ case $1 in
         "${libexec}"/commands/sourcezap-install "${repodir}" "${installdir}" "${commitfile}"
         ;;
     *)
-        printf "Usage: sourcezap COMMAND [OPTIONS]\n"
-        printf "\n"
-        printf "Setup\n"
-        printf "  setup       Setup sourcezap for the first time\n"
-        printf "  teardown    Reverse the changes made by 'sourcezap setup'\n"
-        printf "\n"
-        printf "General\n"
-        printf "  clone       Clone the HardenedBSD source tree\n"
-        printf "  pull        Pull source tree updates\n"
-        printf "  sh          Run /bin/sh within /home/_sourcezap/src/\n"
-        printf "  rm          Remove /usr/src/ and /home/_sourcezap/src/\n"
-        printf "  install     Install the source tree into /usr/src/\n"
+        print_usage
+        exit 1
         ;;
 esac
