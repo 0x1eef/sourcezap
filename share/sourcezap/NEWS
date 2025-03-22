@@ -2,6 +2,10 @@
 
 * vNEXT
 
+**** Remove ~$LOCALBASE~ reference from ~bin/sourcezap~
+The ~$LOCALBASE~ reference in ~bin/sourcezap~ has been
+replaced with a relative path (similar to earlier changes)
+
 **** Reimplement option parser with getopts
 This change reimplements the option parser with getopts.
 The previous implementation was complex and custom

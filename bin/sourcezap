@@ -3,7 +3,7 @@ set -e
 
 ##
 # vars
-localbase=${LOCALBASE:-$(realpath "$(dirname "$0")"/..)}
+localbase=$(realpath "$(dirname "$0")"/..)
 libexec="${localbase}"/libexec/sourcezap
 repodir="/home/_sourcezap/src"
 repourl="${SOURCEZAP_CLONEURL:-https://github.com/HardenedBSD/HardenedBSD.git}"
