@@ -1,5 +1,17 @@
 # -*- mode: org -*-
 
+* vNEXT
+
+**** Grant group members write access to the source tree
+Grant members of the ~_sourcezap~ group write access to
+both ~/usr/src~, and ~/home/_sourcezap/src~. This will
+allow unprivileged users to more easily build the source
+tree
+
+**** Remove verbose output from Makefile's install target
+Remove verbose output from the Makefile's install target
+by dropping the ~-v~ flag from the ~install~ comman
+
 * v1.3.2
 
 **** Update source code documentation
