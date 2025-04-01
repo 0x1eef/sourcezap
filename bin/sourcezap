@@ -1,8 +1,9 @@
 #!/bin/sh
 set -e
 
-##
+#
 # globals
+#
 localbase=$(realpath "$(dirname "$0")"/..)
 libexec="${localbase}"/libexec/sourcezap
 repodir="/home/_sourcezap/src"
@@ -11,8 +12,9 @@ installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
 defaultbranch="hardenedbsd/main"
 commitfile="${installdir}"/.sourcezap
 
-##
+#
 # functions
+#
 # shellcheck source=/dev/null
 . "${libexec}"/functions/print.sh
 
@@ -45,8 +47,9 @@ print_usage()
     printf "  install     Install the source tree into /usr/src/\n"
 }
 
-##
+#
 # main
+#
 while getopts "v" opt; do
     case "${opt}" in
         "v")
