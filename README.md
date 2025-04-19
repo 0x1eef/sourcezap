@@ -46,10 +46,10 @@ the creation of `/home/_sourcezap`. A user should also be added to the
 commands should be run as a superuser:
 
 * sourcezap setup <br>
-Creates the `_sourcezap` user and group, and the `/home/_sourcezap` directory <br>
+Creates the `_sourcezap` user and group <br>
 
 * sourcezap teardown <br>
-Tears down the `_sourcezap` user and group, and removes the `/home/_sourcezap` directory <br>
+Tears down the `_sourcezap` user and group <br>
 
 * pw groupmod _sourcezap -m `<user>` <br>
 Add a user to the `_sourcezap` group. <br>
