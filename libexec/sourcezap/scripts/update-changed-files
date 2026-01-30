@@ -4,7 +4,7 @@ set -e
 #
 # globals
 #
-libexec="$(dirname "$0")"/..
+libexec="$(dirname "${0}")"/..
 repodir=$1
 installdir=$2
 commit=$3
@@ -25,5 +25,11 @@ for file in ${files}; do
     for dir in ${parents}; do
         "${libexec}"/scripts/install -d "${dir}"
     done
-    "${libexec}"/scripts/install "${file}" "${target}"
+    if [ -L "${file}" ]; then
+        cp -Ppv "${file}" "${target}"
+        chown -h root:_sourcezap "${target}"
+    else
+        cp -pv "${file}" "${target}"
+        chown root:_sourcezap "${target}"
+    fi
 done
