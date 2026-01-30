@@ -1,156 +1,107 @@
-# -*- mode: org -*-
+# News
 
-* vNEXT
+## vNEXT
 
-**** Create a merge commit on each pull
-When pulling from the upstream repository, create a merge
-commit and disable rebase
+- Create a merge commit on each pull: when pulling from the upstream
+  repository, create a merge commit and disable rebase.
+- Handle renames/copies in update file lists: include rename/copy detection
+  when computing changed/removed paths during in-place updates.
+- Preserve perms/symlinks on update installs: copy updated files with
+  permissions and symlink metadata preserved during in-place updates.
 
-* v1.3.4
+## v1.3.4
 
-**** Grant group members write access to the source tree
-Grant members of the ~_sourcezap~ group write access to
-both ~/usr/src~, and ~/home/_sourcezap/src~. This will
-allow unprivileged users to more easily build the source
-tree
+- Grant group members write access to the source tree: grant members of the
+  `_sourcezap` group write access to both `/usr/src` and `/home/_sourcezap/src`.
+  This allows unprivileged users to more easily build the source tree.
+- Remove verbose output from Makefile's install target: drop the `-v` flag from
+  the `install` command.
 
-**** Remove verbose output from Makefile's install target
-Remove verbose output from the Makefile's install target
-by dropping the ~-v~ flag from the ~install~ comman
+## v1.3.2
 
-* v1.3.2
+- Update source code documentation: update source code documentation and
+  comments.
 
-**** Update source code documentation
-Update source code documentation / comments
+## v1.3.1
 
-* v1.3.1
+- Remove `$LOCALBASE` reference from `bin/sourcezap`: the `$LOCALBASE` reference
+  in `bin/sourcezap` has been replaced with a relative path (similar to earlier
+  changes).
+- Reimplement option parser with getopts: reimplement the option parser with
+  getopts. The previous implementation was complex and custom.
 
-**** Remove ~$LOCALBASE~ reference from ~bin/sourcezap~
-The ~$LOCALBASE~ reference in ~bin/sourcezap~ has been
-replaced with a relative path (similar to earlier changes)
+## v1.3.0
 
-**** Reimplement option parser with getopts
-This change reimplements the option parser with getopts.
-The previous implementation was complex and custom
+- Improve `sourcezap.8`: fix omissions in the man page.
+- Replace `${LOCALBASE}` with relative paths: replace `${LOCALBASE}` with paths
+  that are relative to `$(dirname "${0}")/..` instead. In the process two
+  variables (`${localbase}`, `${libexec}`) have become one variable
+  (`${libexec}`).
+- Default to GitHub.com: `sourcezap clone` now defaults to GitHub.com. This is
+  faster and more reliable than cloning from `https://git.hardenedbsd.org`.
+  The previous default can be restored by setting `${SOURCEZAP_CLONEURL}` before
+  running `sourcezap clone`.
+- Revisit log messages: more consistent with other log messages.
+  See `fgrep -rn printok libexec/ bin/` and `fgrep -rn printerr libexec/ bin/`.
+- Add `sourcezap sh` to man page: the `sourcezap sh` command was missing from the
+  SYNOPSIS section.
+- Remove `sourcezap checkout`: remove the `sourcezap checkout` command. It has
+  been replaced by using `sourcezap sh` alongside `git checkout <branch>`.
 
-* v1.3.0
+## v1.2.1
 
-**** Improve sourcezap.8
-There were a few omissions in the man page that have
-been updated and corrected
+- Install `doas.conf`: when `${PREFIX}/etc/doas.conf` does not exist the
+  `setup-doas` script will try to install `/usr/local/etc/doas.conf` with
+  `root:wheel` as the owner, and with `u=rw,go=` as the file mode.
+- Log when `sourcezap rm` completes successfully: similar to other commands, log
+  when the `sourcezap rm` command completes successfully.
+- Format log messages with program name: format log messages written to standard
+  output and standard error with the pattern `sourcezap: <message>`.
+- Replace chmod with -M switch: replace chmod with the `-M` switch. The `-M`
+  switch is given to the `pw useradd` command in the `setup-user` script.
 
-**** Replace ${LOCALBASE} with relative paths
-This change replaces the use of ${LOCALBASE} with paths that
-are relative to ~$(dirname "${0}")/..~ instead. In the process
-two variables (~${localbase}, ${libexec}~) have became one
-variable (~${libexec}~)
+## v1.2.0
 
-**** Default to GitHub.com
-By default ~sourcezap clone~ now clones from GitHub.com. This
-is both faster, and a little more reliable than cloning from
-https://git.hardenedbsd.org
+- Fix `libexec/sourcezap/scripts/setup-doas` bug: fix a bug in `setup-doas` that
+  could hang the `sourcezap setup` command.
+- Collapse `libexec/sourcezap/scripts`: stop trying to organize script
+  directories that go beyond `libexec/sourcezap/scripts`.
+- Add `libexec/sourcezap/scripts/setup`: this new directory replaces what was
+  formerly known as `libexec/sourcezap/setup`.
+- Add `libexec/sourcezap/scripts`: this new directory replaces what was formerly
+  known as `libexec/sourcezap/utils`.
 
-The previous default can be restored by setting the environment
-variable ~${SOURCEZAP_CLONEURL}~ before running ~sourcezap clone~
+## v1.1.0
 
-**** Revisit log messages
-More consistent with other log messages.
-See
-***** ~fgrep -rn printok libexec/ bin/~
-***** ~fgrep -rn printerr libexec/ bin/~
+- Add `libexec/sourcezap/utils/get-umask`: add a single source of truth for the
+  mask given to umask by git and `sourcezap-install`.
+- Break up `sourcezap-install` into multiple files: a new directory
+  (`libexec/sourcezap/utils/install/`) contains files that cover both a fresh
+  install and applying an update.
+- Add `setup/setup-doas` improvements: more likely to do what's expected, but
+  blind spots still exist.
+- Add `sourcezap setup`, `sourcezap teardown`: replace and enhance
+  `setup-sourcezap`.
+- Add `libexec/sourcezap/commands/sourcezap-sh`: a new command that can run
+  `/bin/sh` within `/home/_sourcezap/src/` as the `_sourcezap` user.
 
-**** Add ~sourcezap sh~ to man page
-The ~sourcezap sh~ command was missing from the SYNOPIS section
+## v1.0.0
 
-** Remove ~sourcezap checkout~
-Remove the ~sourcezap checkout~ command. It has been replaced
-by using ~sourcezap sh~ alongside ~git checkout <branch>~
+- Add `libexec/sourcezap/setup/setup-user`: `setup-user` sets up the sourcezap
+  user environment.
+- Recover from `git checkout` failure: recover gracefully from failure in
+  sourcezap-clone.
 
-* v1.2.1
+## v0.2.1
 
-**** Install ~doas.conf~
-When ~${PREFIX}/etc/doas.conf~ does not exist the ~setup-doas~
-script will try to install ~/usr/local/etc/doas.conf~ with
-~root:wheel~ as the owner, and with ~u=rw,go=~ as the filemode
+- Fix Makefile: the mandoc directory wasn't created properly. It only became
+  obvious when building the port into a temporary staging directory.
 
-**** Log when ~sourcezap rm~ completes successfully
-Similar to other commands, log when the ~sourcezap rm~ command
-completes successfully
+## v0.2.0
 
-**** Format log messages with program name
-Format log messages written to standard output and standard error
-with the pattern ~sourcezap: <message>~
-
-**** Replace chmod with -M switch
-Replace chmod with the -M switch. The -M switch is given to the
-~pw useradd~ command in the ~setup-user~ script
-
-* v1.2.0
-
-**** Fix ~libexec/sourcezap/scripts/setup-doas~ bug
-Fix a bug in ~setup-doas~ that could hang the ~sourcezap setup~
-command
-
-**** Collapse ~libexec/sourcezap/scripts~
-Stop trying to organize script directories that go beyond
-~libexec/sourcezap/scripts~
-
-**** Add ~libexec/sourcezap/scripts/setup~
-This new directory replaces what was formerly known
-as ~libexec/sourcezap/setup~
-
-**** Add ~libexec/sourcezap/scripts~
-This new directory replaces what was formerly known
-as ~libexec/sourcezap/utils~
-
-* v1.1.0
-
-**** Add 'libexec/sourcezap/utils/get-umask'
-Add a single source of truth for the mask given to umask
-by git and sourcezap-install
-
-**** Break up ~sourcezap-install~ into multiple files
-A new directory (~libexec/sourcezap/utils/install/~) contains
-files that cover both a fresh install and applying an update
-
-**** Add ~setup/setup-doas~ improvements
-More likely to do what's expected, but blind spots still exist
-
-**** Add ~sourcezap setup~, ~sourcezap teardown~
-Replace and enhance ~setup-sourcezap~
-
-**** Add ~libexec/sourcezap/commands/sourcezap-sh~
-A new command that can run ~/bin/sh~ within ~/home/_sourcezap/src/~
-as the ~_sourcezap~ user
-
-* v1.0.0
-
-**** Add libexec/sourcezap/setup/setup-user
-~setup-user~ sets up the sourcezap user environment
-
-**** Recover from ~git checkout~ failure
-Recover gracefully from failure in sourcezap-clone
-
-* v0.2.1
-
-**** Fix Makefile
-The mandoc directory wasn't created properly. It only
-became obvious when building the port into a temporary
-staging directory
-
-* v0.2.0
-
-**** Remove git-diff limit
-Remove file rename limit from git-diff
-
-**** Replace utils/gitexec with utils/git/run
-Communicate with git via utils/git/run
-
-**** Add utils/git
-A dedicated directory for git-related scripts
-
-**** Remove "set -x"
-Emit less output
-
-**** Remove scripts
-Remove utils/printok, utils/printerr, utils/git-rev
+- Remove git-diff limit: remove file rename limit from git-diff.
+- Replace utils/gitexec with utils/git/run: communicate with git via
+  utils/git/run.
+- Add utils/git: a dedicated directory for git-related scripts.
+- Remove "set -x": emit less output.
+- Remove scripts: remove utils/printok, utils/printerr, utils/git-rev.
