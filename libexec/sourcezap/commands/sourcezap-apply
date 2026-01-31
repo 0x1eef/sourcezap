@@ -1,0 +1,37 @@
+#!/bin/sh
+set -e
+
+#
+# globals
+#
+libexec="$(dirname "${0}")"/..
+user="_sourcezap"
+
+#
+# functions
+#
+. "${libexec}"/functions/print.sh
+
+#
+# main
+#
+if [ "$(id -u)" != "0" ]; then
+    printerr "you must be root"
+    exit 1
+fi
+
+gid=$(pw groupshow "${user}" | awk -F: '{print $3}')
+if [ -z "${gid}" ]; then
+    printerr "group ${user} not found"
+    exit 1
+fi
+
+rule="gid=${gid}>uid=${user},gid=${user},+gid=${user}"
+rules=$(sysctl -n security.mac.do.rules)
+if [ -n "${rules}" ]; then
+    merged="${rules};${rule}"
+else
+    merged="${rule}"
+fi
+sysctl security.mac.do.rules="${merged}" > /dev/null 2>&1
+printok "add security.mac.do.rules"

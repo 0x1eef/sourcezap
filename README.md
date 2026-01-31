@@ -12,7 +12,9 @@ can be installed into /usr/src/ by root.
 
 The following commands are restricted to members of the `_sourcezap` group. <br> 
 The commands are delegated to the
-`_sourcezap` user via the [doas(1)](https://man.openbsd.org/doas) command:
+`_sourcezap` user via the [mdo(1)](https://man.freebsd.org/cgi/man.cgi?query=mdo&sektion=1)
+command and the [mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4)
+policy:
 
 * sourcezap clone <br>
 Clone the HardenedBSD source tree into `/home/_sourcezap/src/` <br>
@@ -25,6 +27,23 @@ Run /bin/sh within `/home/_sourcezap/src/` <br>
 
 #### Superuser
 
+#### mac_do(4)
+
+The
+[mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4)
+policy must be loaded into the kernel before sourcezap(1)
+can use the
+[mdo(1)](https://man.freebsd.org/cgi/man.cgi?query=mdo&sektion=1)
+utility successfully. This can be done in one of two ways, _the
+recommended way_ is to add the following line to `/boot/loader.conf`:
+
+    mac_do_load="YES"
+
+And then reboot the system. Otherwise, the policy can be loaded manually
+with the following command and without a reboot:
+
+    root@localhost# kldload mac_do
+
 The following commands are restricted to root, or user id 0. <br>
 Permission to run the following commands is denied for any other user:
 
@@ -33,6 +52,10 @@ Remove the contents of `/usr/src/` and `/home/_sourcezap/src/` <br>
 
 * sourcezap install <br>
 Install `/home/_sourcezap/src/` into `/usr/src/` <br>
+
+* sourcezap apply <br>
+Apply security.mac.do.rules for sourcezap <br>
+Typically called from `/etc/rc.local` at boot time <br>
 
 ## Configuration
 
@@ -71,13 +94,14 @@ Afterwards sourcezap can be installed (and deinstalled) through make:
 ```sh
 git clone https://github.com/0x1eef/sourcezap
 cd sourcezap
-doas -u root -- make install
-doas -u root -- make deinstall
+make install
+make deinstall
 ```
 
 ## Requirements
 
-* [doas](https://man.openbsd.org/doas)
+* [mdo](https://man.freebsd.org/cgi/man.cgi?query=mdo&sektion=1)
+* [mac_do](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4)
 * [git](https://www.man7.org/linux/man-pages/man1/git.1.html)
 
 ## Sources
