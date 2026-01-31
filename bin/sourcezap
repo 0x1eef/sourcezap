@@ -85,7 +85,7 @@ case $1 in
         "${libexec}"/commands/sourcezap-rm "${repodir}" "${installdir}"
         ;;
     "install")
-        require_dependency git mdo
+        require_dependency git mdo rsync
         "${libexec}"/commands/sourcezap-install "${repodir}" "${installdir}" "${commitfile}"
         ;;
     "apply")
