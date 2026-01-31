@@ -1,5 +1,8 @@
 # News
 
+## v2.0.1
+- Bug fix release
+
 ## v2.0.0
 
 - Replace doas with mdo/mac_do: use `mdo` and `mac_do` for delegating
