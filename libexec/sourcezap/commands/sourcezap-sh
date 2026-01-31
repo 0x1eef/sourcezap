@@ -30,4 +30,4 @@ if [ ! -e "${repodir}" ]; then
 fi
 
 cd "${repodir}"
-"${libexec}"/scripts/mdo-sh
+"${libexec}"/scripts/sh
