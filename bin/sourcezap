@@ -40,11 +40,11 @@ print_usage()
     printf "  clone       Clone the hardenedBSD source tree\n"
     printf "  pull        Pull source tree updates\n"
     printf "  sh          Run /bin/sh within /home/_sourcezap/src/\n"
-    printf "  status      Show whether mac_do rules are applied\n"
+    printf "  status      Show whether mac_do(4) rules are applied\n"
+    printf "  apply       Apply mac_do(4) rules\n"
+    printf "  unapply     Remove mac_do(4) rules\n"
     printf "  rm          Remove /usr/src/ and /home/_sourcezap/src/\n"
     printf "  install     Install the source tree into /usr/src/\n"
-    printf "  apply       Apply security.mac.do.rules for sourcezap\n"
-    printf "  unapply     Remove security.mac.do.rules for sourcezap\n"
 }
 
 #
@@ -85,18 +85,18 @@ case $1 in
     "status")
         "${libexec}"/commands/sourcezap-status
         ;;
+    "apply")
+        "${libexec}"/commands/sourcezap-apply
+        ;;
+    "unapply")
+        "${libexec}"/commands/sourcezap-unapply
+        ;;
     "rm")
         "${libexec}"/commands/sourcezap-rm "${repodir}" "${installdir}"
         ;;
     "install")
         require_dependency git mdo rsync
         "${libexec}"/commands/sourcezap-install "${repodir}" "${installdir}" "${commitfile}"
-        ;;
-    "apply")
-        "${libexec}"/commands/sourcezap-apply
-        ;;
-    "unapply")
-        "${libexec}"/commands/sourcezap-unapply
         ;;
     *)
         print_usage

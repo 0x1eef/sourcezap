@@ -51,11 +51,11 @@ Remove the contents of `/usr/src/` and `/home/_sourcezap/src/` <br>
 Install `/home/_sourcezap/src/` into `/usr/src/` <br>
 
 * sourcezap apply <br>
-Apply security.mac.do.rules for sourcezap <br>
+Apply mac_do(4) rules <br>
 Allows root and members of the `_sourcezap` group to act as the `_sourcezap` user <br>
 
 * sourcezap unapply <br>
-Clear sourcezap rules from security.mac.do.rules <br>
+Remove mac_do(4) rules <br>
 
 ## Configuration
 
