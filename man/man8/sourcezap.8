@@ -14,6 +14,7 @@
 .Nm sourcezap install
 .Nm sourcezap rm
 .Nm sourcezap apply
+.Nm sourcezap unapply
 .Sh DESCRIPTION
 .Nm sourcezap
 manages a copy of the HardenedBSD source tree.
@@ -95,8 +96,12 @@ This command requires root privileges
 Apply security.mac.do.rules for sourcezap
 .br
 This command requires root privileges
+.Pp
+.Nm sourcezap unapply
 .br
-Typically called from /etc/rc.local at boot time
+Remove security.mac.do.rules for sourcezap
+.br
+This command requires root privileges
 .Sh ENVIRONMENT
 .sp
 .sp

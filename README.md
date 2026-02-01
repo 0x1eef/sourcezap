@@ -37,7 +37,9 @@ Install `/home/_sourcezap/src/` into `/usr/src/` <br>
 
 * sourcezap apply <br>
 Apply security.mac.do.rules for sourcezap <br>
-Typically called from `/etc/rc.local` at boot time <br>
+
+* sourcezap unapply <br>
+Clear sourcezap rules from security.mac.do.rules <br>
 
 ## Configuration
 
