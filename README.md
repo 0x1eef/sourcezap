@@ -13,7 +13,7 @@ the source tree.
 
 * A simple workflow: clone, pull, then install.
 * Restricts access to root and `_sourcezap` group members.
-* One dedicated account (`_sourcezap`) for managing the source tree.
+* One dedicated user (`_sourcezap`) for managing the source tree.
 * Delegation: [mdo(1)](https://man.freebsd.org/cgi/man.cgi?query=mdo&sektion=1) runs commands as `_sourcezap`.
 * Clear permissions: [mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4) rules decide who can act as `_sourcezap`.
 * Separates unprivileged operations from root-only operations.
