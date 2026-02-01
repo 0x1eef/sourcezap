@@ -37,7 +37,7 @@ Pull updates into `/home/_sourcezap/src/` <br>
 Run /bin/sh within `/home/_sourcezap/src/` <br>
 
 * sourcezap status <br>
-Show whether sourcezap [mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4) rules are applied <br>
+Show whether [mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4) rules are applied <br>
 
 #### Superuser
 
@@ -51,11 +51,11 @@ Remove the contents of `/usr/src/` and `/home/_sourcezap/src/` <br>
 Install `/home/_sourcezap/src/` into `/usr/src/` <br>
 
 * sourcezap apply <br>
-Apply mac_do(4) rules <br>
+Apply [mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4) rules <br>
 Allows root and members of the `_sourcezap` group to act as the `_sourcezap` user <br>
 
 * sourcezap unapply <br>
-Remove mac_do(4) rules <br>
+Remove [mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4) rules <br>
 
 ## Configuration
 
