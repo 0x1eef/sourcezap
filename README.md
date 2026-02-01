@@ -13,13 +13,13 @@ the source tree.
 
 * Easy to use.
 * A simple workflow: clone, pull, then install.
+* Uses `rsync` and `git` for fast, efficient updates.
 * Restricts access to root and `_sourcezap` group members.
+* Separates unprivileged operations from root-only operations.
 * One dedicated user (`_sourcezap`) for managing the source tree.
+* Keeps ownership and permissions consistent in `/home/_sourcezap/src/` and `/usr/src/`.
 * Delegation: [mdo(1)](https://man.freebsd.org/cgi/man.cgi?query=mdo&sektion=1) runs commands as `_sourcezap`.
 * Clear permissions: [mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4) rules decide who can act as `_sourcezap`.
-* Separates unprivileged operations from root-only operations.
-* Keeps ownership and permissions consistent in `/home/_sourcezap/src/` and `/usr/src/`.
-* Uses `rsync` and `git` for fast, efficient updates.
 
 ## Commands
 
