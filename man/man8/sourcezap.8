@@ -3,7 +3,7 @@
 .Os
 .Sh NAME
 .Nm sourcezap
-.Nd manages a copy of the HardenedBSD source tree
+.Nd manages a copy of the hardenedBSD source tree
 .Sh SYNOPSIS
 .br
 .Nm sourcezap setup
@@ -17,7 +17,7 @@
 .Nm sourcezap unapply
 .Sh DESCRIPTION
 .Nm sourcezap
-manages a local copy of the HardenedBSD source tree with consistent ownership,
+manages a local copy of the hardenedBSD source tree with consistent ownership,
 a clean separation between delegated and root-only operations, and a simple
 update/install workflow.
 .Sh DEPENDENCIES
@@ -58,7 +58,7 @@ This command requires root privileges
 .sp
 .Nm sourcezap clone
 .br
-Clone the HardenedBSD source tree into /home/_sourcezap/src/
+Clone the hardenedBSD source tree into /home/_sourcezap/src/
 .br
 This command is delegated to the '_sourcezap' user and access is controlled
 by mac_do(4) rules installed by
@@ -111,7 +111,7 @@ This command requires root privileges
 .br
 The URL of a git repository
 .br
-Default: https://github.com/HardenedBSD/HardenedBSD.git/
+Default: https://github.com/hardenedBSD/hardenedBSD.git/
 .sp
 .Nm SOURCEZAP_INSTALLDIR
 .br

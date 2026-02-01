@@ -58,7 +58,7 @@
   variables (`${localbase}`, `${libexec}`) have become one variable
   (`${libexec}`).
 - Default to GitHub.com: `sourcezap clone` now defaults to GitHub.com. This is
-  faster and more reliable than cloning from `https://git.hardenedbsd.org`.
+  faster and more reliable than cloning from `https://git.hardenedBSD.org`.
   The previous default can be restored by setting `${SOURCEZAP_CLONEURL}` before
   running `sourcezap clone`.
 - Revisit log messages: more consistent with other log messages.

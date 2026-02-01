@@ -7,7 +7,7 @@ set -e
 localbase=$(realpath "$(dirname "$0")"/..)
 libexec="${localbase}"/libexec/sourcezap
 repodir="/home/_sourcezap/src"
-repourl="${SOURCEZAP_CLONEURL:-https://github.com/HardenedBSD/HardenedBSD.git}"
+repourl="${SOURCEZAP_CLONEURL:-https://github.com/hardenedBSD/hardenedBSD.git}"
 installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
 defaultbranch="hardenedbsd/main"
 commitfile="${installdir}"/.sourcezap
@@ -37,7 +37,7 @@ print_usage()
     printf "  teardown    Reverse the changes made by 'sourcezap setup'\n"
     printf "\n"
     printf "General\n"
-    printf "  clone       Clone the HardenedBSD source tree\n"
+    printf "  clone       Clone the hardenedBSD source tree\n"
     printf "  pull        Pull source tree updates\n"
     printf "  sh          Run /bin/sh within /home/_sourcezap/src/\n"
     printf "  rm          Remove /usr/src/ and /home/_sourcezap/src/\n"

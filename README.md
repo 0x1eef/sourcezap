@@ -1,7 +1,7 @@
 ## About
 
 The sourcezap utility manages a local copy of the
-[HardenedBSD source tree](https://git.HardenedBSD.org/HardenedBSD/HardenedBSD)
+[hardenedBSD source tree](https://git.hardenedBSD.org/hardenedBSD/hardenedBSD)
 in a way that is efficient, scalable, and secure. The
 utility provides consistent ownership and permissions
 for the source tree, maintains a clean separation between
@@ -27,7 +27,7 @@ authorized by mac_do(4) rules. By default you must be root or a
 member of the `_sourcezap` group to run the following commands:
 
 * sourcezap clone <br>
-Clone the HardenedBSD source tree into `/home/_sourcezap/src/` <br>
+Clone the hardenedBSD source tree into `/home/_sourcezap/src/` <br>
 
 * sourcezap pull <br>
 Pull updates into `/home/_sourcezap/src/` <br>
@@ -96,7 +96,7 @@ with the following command and without a reboot:
 #### Package
 
 sourcezap is available
-[from the HardenedBSD src tree](https://git.HardenedBSD.org/HardenedBSD/ports/-/tree/HardenedBSD/main/hardenedbsd/sourcezap).
+[from the hardenedBSD src tree](https://git.hardenedBSD.org/hardenedBSD/ports/-/tree/hardenedBSD/main/hardenedBSD/sourcezap).
 <br>
 "pkg install sourcezap" should work too but expect slower updates.
 
@@ -123,7 +123,7 @@ make deinstall
 
 * [github.com/@0x1eef](https://github.com/0x1eef/sourcezap)
 * [gitlab.com/@0x1eef](https://gitlab.com/0x1eef/sourcezap)
-* [hardenedbsd.org/@0x1eef](https://git.HardenedBSD.org/0x1eef/sourcezap)
+* [hardenedBSD.org/@0x1eef](https://git.hardenedBSD.org/0x1eef/sourcezap)
 * [bsd.cafe/@0x1eef](https://brew.bsd.cafe/0x1eef/sourcezap)
 
 ## License
