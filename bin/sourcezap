@@ -44,6 +44,7 @@ print_usage()
     printf "  rm          Remove /usr/src/ and /home/_sourcezap/src/\n"
     printf "  install     Install the source tree into /usr/src/\n"
     printf "  apply       Apply security.mac.do.rules for sourcezap\n"
+    printf "  unapply     Remove security.mac.do.rules for sourcezap\n"
 }
 
 #
@@ -90,6 +91,9 @@ case $1 in
         ;;
     "apply")
         "${libexec}"/commands/sourcezap-apply
+        ;;
+    "unapply")
+        "${libexec}"/commands/sourcezap-unapply
         ;;
     *)
         print_usage
