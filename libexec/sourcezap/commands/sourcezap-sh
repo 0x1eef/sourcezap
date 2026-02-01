@@ -15,14 +15,6 @@ repodir="${1}"
 #
 # main
 #
-if [ "$(id -u)" = "0" ]; then
-    printerr "you must be a user other than root"
-    exit 1
-fi
-if ! "${libexec}"/scripts/is-sourcezap-member; then
-   printerr "$(id -un) is not a member of _sourcezap"
-   exit 1
-fi
 if [ ! -e "${repodir}" ]; then
     printerr "try 'sourcezap clone' instead"
     exit 1

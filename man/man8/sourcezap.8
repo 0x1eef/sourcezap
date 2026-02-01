@@ -17,10 +17,9 @@
 .Nm sourcezap unapply
 .Sh DESCRIPTION
 .Nm sourcezap
-manages a copy of the HardenedBSD source tree.
-The copy of the source tree is maintained by members of
-the '_sourcezap' group, and a copy of the source tree
-can be installed into /usr/src/ by root.
+manages a local copy of the HardenedBSD source tree with consistent ownership,
+a clean separation between delegated and root-only operations, and a simple
+update/install workflow.
 .Sh DEPENDENCIES
 The mac_do(4) policy must be loaded into the kernel before sourcezap(8)
 can use mdo(1). To load mac_do(4) at boot time, add the following to
@@ -61,22 +60,25 @@ This command requires root privileges
 .br
 Clone the HardenedBSD source tree into /home/_sourcezap/src/
 .br
-This command is delegated to the '_sourcezap' user and
-limited to members of the '_sourcezap' group
+This command is delegated to the '_sourcezap' user and access is controlled
+by mac_do(4) rules installed by
+.Nm sourcezap apply
 .Pp
 .Nm sourcezap pull
 .br
 Pull updates into /home/_sourcezap/src/
 .br
-This command is delegated to the '_sourcezap' user and
-limited to members of the '_sourcezap' group
+This command is delegated to the '_sourcezap' user and access is controlled
+by mac_do(4) rules installed by
+.Nm sourcezap apply
 .Pp
 .Nm sourcezap sh
 .br
 Run /bin/sh within /home/_sourcezap/src/
 .br
-This command is delegated to the '_sourcezap' user and
-limited to members of the '_sourcezap' group
+This command is delegated to the '_sourcezap' user and access is controlled
+by mac_do(4) rules installed by
+.Nm sourcezap apply
 .Pp
 .Nm sourcezap rm
 .br

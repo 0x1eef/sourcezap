@@ -1,19 +1,30 @@
 ## About
 
 The sourcezap utility manages a local copy of the
-[HardenedBSD source tree](https://git.HardenedBSD.org/HardenedBSD/HardenedBSD).
-The copy of the source tree is maintained by members of
-the `_sourcezap` group, and the copy of the source tree
-can be installed into /usr/src/ by root.
+[HardenedBSD source tree](https://git.HardenedBSD.org/HardenedBSD/HardenedBSD)
+in a way that is efficient, scalable, and secure. The
+utility provides consistent ownership and permissions
+for the source tree, maintains a clean separation between
+root-only operations and unprivileged operations, and
+offers a simple workflow for updating and installing
+the source tree.
 
-## Roles
+## Features
+
+* A simple workflow: clone, pull, then install.
+* One dedicated account (`_sourcezap`) for managing the source tree.
+* Clear permissions: mac_do(4) rules decide who can act as `_sourcezap`.
+* Separates unprivileged operations from root-only operations.
+* Keeps ownership and permissions consistent in `/home/_sourcezap/src/` and `/usr/src/`.
+* Uses `rsync` and `git` for fast, efficient updates.
+
+## Commands
 
 #### User
 
-The following commands are restricted to members of the `_sourcezap` group. <br>
-The commands are delegated to the
-`_sourcezap` user via the [mdo(1)](https://man.freebsd.org/cgi/man.cgi?query=mdo&sektion=1)
-command:
+The following commands are delegated to the `_sourcezap` user and
+authorized by mac_do(4) rules. By default you must be root or a
+member of the `_sourcezap` group to run the following commands:
 
 * sourcezap clone <br>
 Clone the HardenedBSD source tree into `/home/_sourcezap/src/` <br>
@@ -37,6 +48,7 @@ Install `/home/_sourcezap/src/` into `/usr/src/` <br>
 
 * sourcezap apply <br>
 Apply security.mac.do.rules for sourcezap <br>
+Allows root and members of the `_sourcezap` group to act as the `_sourcezap` user <br>
 
 * sourcezap unapply <br>
 Clear sourcezap rules from security.mac.do.rules <br>
@@ -48,9 +60,10 @@ Clear sourcezap rules from security.mac.do.rules <br>
 After installation is complete the sourcezap environment should be setup.
 
 That includes the creation of the `_sourcezap` user and group, as well as
-the creation of `/home/_sourcezap`. A user should also be added to the
-`_sourcezap` group. The process is mostly automated, and the following
-commands should be run as a superuser:
+the creation of `/home/_sourcezap`. Adding a user to the `_sourcezap` group is
+recommended when you want to manage the tree as a non-root user (who will
+then be delegated to `_sourcezap`). The process is mostly automated, and the
+following commands should be run as a superuser:
 
 * sourcezap setup <br>
 Creates the `_sourcezap` user and group <br>
