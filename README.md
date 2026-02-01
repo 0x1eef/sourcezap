@@ -36,6 +36,9 @@ Pull updates into `/home/_sourcezap/src/` <br>
 * sourcezap sh <br>
 Run /bin/sh within `/home/_sourcezap/src/` <br>
 
+* sourcezap status <br>
+Show whether sourcezap [mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4) rules are applied <br>
+
 #### Superuser
 
 The following commands are restricted to root, or user id 0. <br>

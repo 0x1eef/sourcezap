@@ -4,6 +4,7 @@
 
 - Add `sourcezap unapply`: clear sourcezap rules from security.mac.do.rules.
 - Rename `scripts/sh` to `scripts/mdo` and keep it as the shared mdo wrapper.
+- Add `sourcezap status`: report whether sourcezap mac_do(4) rules are applied.
 
 ## v2.0.2
 

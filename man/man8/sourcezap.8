@@ -11,6 +11,7 @@
 .Nm sourcezap clone
 .Nm sourcezap pull
 .Nm sourcezap sh
+.Nm sourcezap status
 .Nm sourcezap install
 .Nm sourcezap rm
 .Nm sourcezap apply
@@ -79,6 +80,12 @@ Run /bin/sh within /home/_sourcezap/src/
 This command is delegated to the '_sourcezap' user and access is controlled
 by mac_do(4) rules installed by
 .Nm sourcezap apply
+.Pp
+.Nm sourcezap status
+.br
+Report whether mac_do(4) rules for sourcezap are applied
+.br
+This command can be run by any user
 .Pp
 .Nm sourcezap rm
 .br

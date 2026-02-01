@@ -40,6 +40,7 @@ print_usage()
     printf "  clone       Clone the hardenedBSD source tree\n"
     printf "  pull        Pull source tree updates\n"
     printf "  sh          Run /bin/sh within /home/_sourcezap/src/\n"
+    printf "  status      Show whether mac_do rules are applied\n"
     printf "  rm          Remove /usr/src/ and /home/_sourcezap/src/\n"
     printf "  install     Install the source tree into /usr/src/\n"
     printf "  apply       Apply security.mac.do.rules for sourcezap\n"
@@ -80,6 +81,9 @@ case $1 in
     "sh")
         require_dependency mdo
         "${libexec}"/commands/sourcezap-sh "${repodir}"
+        ;;
+    "status")
+        "${libexec}"/commands/sourcezap-status
         ;;
     "rm")
         "${libexec}"/commands/sourcezap-rm "${repodir}" "${installdir}"
