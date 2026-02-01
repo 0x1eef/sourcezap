@@ -11,6 +11,7 @@ the source tree.
 
 ## Features
 
+* Easy to use.
 * A simple workflow: clone, pull, then install.
 * Restricts access to root and `_sourcezap` group members.
 * One dedicated user (`_sourcezap`) for managing the source tree.
