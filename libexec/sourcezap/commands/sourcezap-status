@@ -39,6 +39,5 @@ if is_rule_enabled "${rules}" "${rule}"; then
     printok "enabled"
     exit 0
 fi
-
 printok "disabled"
 exit 1
