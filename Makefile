@@ -15,6 +15,7 @@ install:
 deinstall:
 	rm -rf $(BINDIR)/sourcezap
 	rm -rf $(MANDIR)/sourcezap.8
+	rm -rf $(ETCDIR)/rc.d/sourcezap
 	rm -rf $(LIBEXECDIR)
 	rm -rf $(SHAREDIR)
 
