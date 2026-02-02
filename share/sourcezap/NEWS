@@ -1,5 +1,9 @@
 # News
 
+## vNEXT
+
+- Fix rule filtering in `sourcezap unapply` when multiple rules are present.
+
 ## v2.1.0
 
 - Add `sourcezap unapply`: clear sourcezap rules from security.mac.do.rules.
