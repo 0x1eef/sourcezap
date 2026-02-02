@@ -1,7 +1,5 @@
 # News
 
-## vNEXT
-
 ## v2.1.1
 
 - Fix rule filtering in `sourcezap unapply` when multiple rules are present.
