@@ -8,15 +8,16 @@ get_system_rules()
 
 get_sourcezap_rules()
 {
+    local libexec
     libexec=$1
     "${libexec}"/scripts/get-mdo-rule | tr ';' '\n' | sed '/^$/d'
 }
 
 is_rule_enabled()
 {
+    local system_rules rule_list syslist entry
     system_rules=$1
     rule_list=$2
-
     syslist=$(printf "%s" "${system_rules}" | tr ';' '\n')
     while IFS= read -r entry; do
         [ -z "${entry}" ] && continue
