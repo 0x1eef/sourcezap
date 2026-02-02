@@ -11,6 +11,16 @@ libexec="$(dirname "$0")"/..
 #
 . "${libexec}"/functions/print.sh
 
+get_sourcezap_rules()
+{
+    "${libexec}"/scripts/get-mdo-rule | tr ';' '\n' | sed '/^$/d'
+}
+
+get_system_rules()
+{
+    sysctl -n security.mac.do.rules 2> /dev/null || true
+}
+
 is_rule_enabled()
 {
     local syslist
@@ -28,14 +38,13 @@ EOFRULES
 #
 # main
 #
-rule=$("${libexec}"/scripts/get-mdo-rule | tr ';' '\n' | sed '/^$/d')
-rules=$(sysctl -n security.mac.do.rules 2> /dev/null || true)
-if [ -z "${rules}" ]; then
+sourcezap_rules=$(get_sourcezap_rules)
+system_rules=$(get_system_rules)
+if [ -z "${system_rules}" ]; then
     printok "disabled"
     exit 1
 fi
-
-if is_rule_enabled "${rules}" "${rule}"; then
+if is_rule_enabled "${system_rules}" "${sourcezap_rules}"; then
     printok "enabled"
     exit 0
 fi
