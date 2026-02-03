@@ -77,7 +77,7 @@ And then reboot the system. Otherwise, the policy can be loaded manually
 with the following command and without a reboot:
 
     root@localhost# kldload mac_do
-    
+
 #### Environment
 
 After installation is complete the sourcezap environment should be setup.

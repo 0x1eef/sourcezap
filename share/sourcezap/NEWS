@@ -3,6 +3,7 @@
 ## vNEXT
 
 - Nothing yet
+- Add -f to force `sourcezap install` even when up to date.
 
 ## v2.2.0
 

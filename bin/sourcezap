@@ -65,38 +65,48 @@ done
 
 case $1 in
     "setup")
-        "${libexec}"/commands/sourcezap-setup
+        shift
+        "${libexec}"/commands/sourcezap-setup "${@}"
         ;;
     "teardown")
-        "${libexec}"/commands/sourcezap-teardown
+        shift
+        "${libexec}"/commands/sourcezap-teardown "${@}"
         ;;
     "clone")
+        shift
         require_dependency git mdo
-        "${libexec}"/commands/sourcezap-clone "${repourl}" "${repodir}" "${defaultbranch}"
+        "${libexec}"/commands/sourcezap-clone "${repourl}" "${repodir}" "${defaultbranch}" "${@}"
         ;;
     "pull")
+        shift
         require_dependency git mdo
-        "${libexec}"/commands/sourcezap-pull "${repodir}"
+        "${libexec}"/commands/sourcezap-pull "${repodir}" "${@}"
         ;;
     "sh")
+        shift
         require_dependency mdo
-        "${libexec}"/commands/sourcezap-sh "${repodir}"
+        "${libexec}"/commands/sourcezap-sh "${repodir}" "${@}"
         ;;
     "status")
-        "${libexec}"/commands/sourcezap-status
+        shift
+        "${libexec}"/commands/sourcezap-status "${@}"
         ;;
     "apply")
-        "${libexec}"/commands/sourcezap-apply
+        shift
+        "${libexec}"/commands/sourcezap-apply "${@}"
         ;;
     "unapply")
-        "${libexec}"/commands/sourcezap-unapply
+        shift
+        "${libexec}"/commands/sourcezap-unapply "${@}"
         ;;
     "rm")
-        "${libexec}"/commands/sourcezap-rm "${repodir}" "${installdir}"
+        shift
+        "${libexec}"/commands/sourcezap-rm "${repodir}" "${installdir}" "${@}"
         ;;
     "install")
+        shift
         require_dependency git mdo rsync
-        "${libexec}"/commands/sourcezap-install "${repodir}" "${installdir}" "${commitfile}"
+        "${libexec}"/commands/sourcezap-install "${repodir}" "${installdir}" "${commitfile}" "${@}"
         ;;
     *)
         print_usage
