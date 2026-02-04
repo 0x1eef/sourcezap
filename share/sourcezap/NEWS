@@ -2,7 +2,7 @@
 
 ## vNEXT
 
-- Nothing yet
+- Speedup `sourcezap pull`: avoid spawning `git stash create`
 - Add -f to force `sourcezap install` even when up to date.
 
 ## v2.2.0
