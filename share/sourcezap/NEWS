@@ -4,6 +4,10 @@
 
 - Switch the default source clone URL from GitHub to the official hardenedBSD
   radicle repository.
+- Switch clone and pull operations from the Radicle HTTP bridge to native
+  rad(1) CLI (`rad clone`, `rad sync`).
+- Add libexec/sourcezap/scripts/rad to wrap rad(1) through mdo(8).
+- Replace SOURCEZAP_CLONEURL with SOURCEZAP_RADID and SOURCEZAP_SEEDNODE.
 
 ## v2.3.0
 
