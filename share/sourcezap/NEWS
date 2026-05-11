@@ -2,6 +2,7 @@
 
 ## vNEXT
 
+- Add `sourcezap auth`: run `rad auth` as the `_sourcezap` user.
 - Switch the default source clone URL from GitHub to the official hardenedBSD
   radicle repository.
 - Switch clone and pull operations from the Radicle HTTP bridge to native

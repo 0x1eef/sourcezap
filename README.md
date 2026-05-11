@@ -29,6 +29,9 @@ The following commands are delegated to the `_sourcezap` user and
 authorized by [mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4) rules. By default you must be root or a
 member of the `_sourcezap` group to run the following commands:
 
+* sourcezap auth <br>
+Run `rad auth` as `_sourcezap` <br>
+
 * sourcezap clone <br>
 Clone the hardenedBSD source tree into `/home/_sourcezap/src/` <br>
 

@@ -38,6 +38,7 @@ print_usage()
     printf "  teardown    Reverse the changes made by 'sourcezap setup'\n"
     printf "\n"
     printf "General\n"
+    printf "  auth        Run 'rad auth' as _sourcezap\n"
     printf "  clone       Clone the HardenedBSD source tree\n"
     printf "  pull        Pull source tree updates\n"
     printf "  sh          Run /bin/sh within /home/_sourcezap/src/\n"
@@ -77,6 +78,11 @@ case $1 in
         shift
         require_dependency rad mdo
         "${libexec}"/commands/sourcezap-clone "${radid}" "${seednode}" "${repodir}" "${defaultbranch}" "${@}"
+        ;;
+    "auth")
+        shift
+        require_dependency rad mdo
+        "${libexec}"/commands/sourcezap-auth "${@}"
         ;;
     "pull")
         shift
