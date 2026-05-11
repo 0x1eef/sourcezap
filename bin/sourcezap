@@ -8,7 +8,7 @@ localbase=$(realpath "$(dirname "$0")"/..)
 libexec="${localbase}"/libexec/sourcezap
 repodir="/home/_sourcezap/src"
 radid="${SOURCEZAP_RADID:-z2HLHXgL1xevBNQsf8BmQW7MpJmtm}"
-seednode="${SOURCEZAP_SEEDNODE:-rad.hardenedbsd.org}"
+radnid="${SOURCEZAP_NID:-z6MknwwMpmZET1PcvQjPYhA6hGY7wkYzxb9YtSRh5j2qSQdG}"
 installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
 defaultbranch="hardenedbsd/main"
 commitfile="${installdir}"/.sourcezap
@@ -78,7 +78,7 @@ case $1 in
     "clone")
         shift
         require_dependency rad mdo
-        "${libexec}"/commands/sourcezap-clone "${radid}" "${seednode}" "${repodir}" "${defaultbranch}" "${@}"
+        "${libexec}"/commands/sourcezap-clone "${radid}" "${radnid}" "${repodir}" "${defaultbranch}" "${@}"
         ;;
     "auth")
         shift

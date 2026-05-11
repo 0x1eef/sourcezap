@@ -9,7 +9,7 @@
 - Switch clone and pull operations from the Radicle HTTP bridge to native
   rad(1) CLI (`rad clone`, `rad sync`).
 - Add libexec/sourcezap/scripts/rad to wrap rad(1) through mdo(8).
-- Replace SOURCEZAP_CLONEURL with SOURCEZAP_RADID and SOURCEZAP_SEEDNODE.
+- Replace SOURCEZAP_CLONEURL with SOURCEZAP_RADID and SOURCEZAP_NID.
 
 ## v2.3.0
 
