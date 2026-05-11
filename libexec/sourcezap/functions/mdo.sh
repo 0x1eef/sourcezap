@@ -42,17 +42,14 @@ merge_rules()
 
 filter_rules()
 {
-    local system_rules sourcezap_rules rules_joined
+    local system_rules sourcezap_rules entry
     system_rules=$1
     sourcezap_rules=$2
-    rules_joined=$(printf "%s" "${sourcezap_rules}" | tr '\n' '\034' | sed 's/\034$//')
-    printf "%s" "${system_rules}" | tr ';' '\n' | awk -v rules="${rules_joined}" '
-BEGIN { n = split(rules, r, "\034") }
-NF {
-    for (i = 1; i <= n; i++) if ($0 == r[i]) next
-    print
-}
-'
+    printf "%s" "${system_rules}" | tr ';' '\n' | while IFS= read -r entry; do
+        [ -z "${entry}" ] && continue
+        printf "%s\n" "${sourcezap_rules}" | grep -Fxq -- "${entry}" && continue
+        printf "%s\n" "${entry}"
+    done
 }
 
 join_rules()
