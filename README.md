@@ -32,6 +32,9 @@ member of the `_sourcezap` group to run the following commands:
 * sourcezap auth <br>
 Run `rad auth` as `_sourcezap` <br>
 
+* sourcezap start-node <br>
+Run `rad node start` as `_sourcezap` <br>
+
 * sourcezap clone <br>
 Clone the hardenedBSD source tree into `/home/_sourcezap/src/` <br>
 

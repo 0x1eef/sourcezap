@@ -39,6 +39,7 @@ print_usage()
     printf "\n"
     printf "General\n"
     printf "  auth        Run 'rad auth' as _sourcezap\n"
+    printf "  start-node  Run 'rad node start' as _sourcezap\n"
     printf "  clone       Clone the HardenedBSD source tree\n"
     printf "  pull        Pull source tree updates\n"
     printf "  sh          Run /bin/sh within /home/_sourcezap/src/\n"
@@ -83,6 +84,11 @@ case $1 in
         shift
         require_dependency rad mdo
         "${libexec}"/commands/sourcezap-auth "${@}"
+        ;;
+    "start-node")
+        shift
+        require_dependency rad mdo
+        "${libexec}"/commands/sourcezap-start-node "${@}"
         ;;
     "pull")
         shift
