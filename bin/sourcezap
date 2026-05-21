@@ -7,8 +7,7 @@ set -e
 localbase=$(realpath "$(dirname "$0")"/..)
 libexec="${localbase}"/libexec/sourcezap
 repodir="/home/_sourcezap/src"
-radid="${SOURCEZAP_RADID:-z2HLHXgL1xevBNQsf8BmQW7MpJmtm}"
-radnid="${SOURCEZAP_NID:-z6MknwwMpmZET1PcvQjPYhA6hGY7wkYzxb9YtSRh5j2qSQdG}"
+repourl="${SOURCEZAP_CLONEURL:-https://rad.hardenedbsd.org/z2HLHXgL1xevBNQsf8BmQW7MpJmtm.git}"
 installdir="${SOURCEZAP_INSTALLDIR:-/usr/src}"
 defaultbranch="hardenedbsd/main"
 commitfile="${installdir}"/.sourcezap
@@ -38,9 +37,7 @@ print_usage()
     printf "  teardown    Reverse the changes made by 'sourcezap setup'\n"
     printf "\n"
     printf "General\n"
-    printf "  auth        Run 'rad auth' as _sourcezap\n"
-    printf "  start-node  Run 'rad node start' as _sourcezap\n"
-    printf "  clone       Clone the HardenedBSD source tree\n"
+    printf "  clone       Clone the hardenedBSD source tree\n"
     printf "  pull        Pull source tree updates\n"
     printf "  sh          Run /bin/sh within /home/_sourcezap/src/\n"
     printf "  status      Show whether mac_do(4) rules are applied\n"
@@ -77,22 +74,12 @@ case $1 in
         ;;
     "clone")
         shift
-        require_dependency rad mdo
-        "${libexec}"/commands/sourcezap-clone "${radid}" "${radnid}" "${repodir}" "${defaultbranch}" "${@}"
-        ;;
-    "auth")
-        shift
-        require_dependency rad mdo
-        "${libexec}"/commands/sourcezap-auth "${@}"
-        ;;
-    "start-node")
-        shift
-        require_dependency rad mdo
-        "${libexec}"/commands/sourcezap-start-node "${@}"
+        require_dependency git mdo
+        "${libexec}"/commands/sourcezap-clone "${repourl}" "${repodir}" "${defaultbranch}" "${@}"
         ;;
     "pull")
         shift
-        require_dependency rad mdo
+        require_dependency git mdo
         "${libexec}"/commands/sourcezap-pull "${repodir}" "${@}"
         ;;
     "sh")

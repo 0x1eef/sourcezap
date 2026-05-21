@@ -5,7 +5,7 @@ set -e
 # globals
 #
 libexec="$(dirname "${0}")"/..
-rad="${libexec}"/scripts/rad
+git="${libexec}"/scripts/git
 repodir=$1
 
 #
@@ -21,5 +21,7 @@ if [ ! -e "${repodir}"/.git ]; then
     exit 1
 fi
 
-"${rad}" sync
+cd "${repodir}"
+branch=$("${git}" branch --show-current)
+"${git}" -c rebase.autostash=false pull --no-ff --no-rebase origin "${branch}"
 printok "pull complete"

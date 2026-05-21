@@ -5,12 +5,10 @@ set -e
 # globals
 #
 libexec="$(dirname "$0")"/..
-rad="${libexec}"/scripts/rad
 git="${libexec}"/scripts/git
-radid=$1
-radnid=$2
-repodir=$3
-branch=$4
+repourl=$1
+repodir=$2
+branch=$3
 
 #
 # functions
@@ -25,7 +23,8 @@ if [ -e "${repodir}"/.git ]; then
     exit 1
 fi
 
-"${rad}" clone "${radid}" --seed "${radnid}" "${repodir}"
+"${git}" clone "${repourl}" "${repodir}"
 cd "${repodir}"
 "${git}" config core.filemode off
+"${git}" checkout -t origin/"${branch}" > /dev/null 2>&1 || true
 printok "clone complete"

@@ -8,8 +8,6 @@
 .br
 .Nm sourcezap setup
 .Nm sourcezap teardown
-.Nm sourcezap auth
-.Nm sourcezap start-node
 .Nm sourcezap clone
 .Nm sourcezap pull
 .Nm sourcezap sh
@@ -59,22 +57,6 @@ This command requires root privileges
 .Sh GENERAL
 .sp
 .sp
-.Nm sourcezap auth
-.br
-Run rad auth as the _sourcezap user
-.br
-This command is delegated to the '_sourcezap' user and access is controlled
-by mac_do(4) rules installed by
-.Nm sourcezap apply
-.Pp
-.Nm sourcezap start-node
-.br
-Run rad node start as the _sourcezap user
-.br
-This command is delegated to the '_sourcezap' user and access is controlled
-by mac_do(4) rules installed by
-.Nm sourcezap apply
-.Pp
 .Nm sourcezap clone
 .br
 Clone the hardenedBSD source tree into /home/_sourcezap/src/
