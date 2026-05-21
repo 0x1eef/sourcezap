@@ -1,9 +1,8 @@
 # News
 
-## vNEXT
+## v2.4.0
 
-- Switch the default source clone URL from GitHub to the official hardenedBSD
-  radicle repository.
+- Switch the default source clone URL from GitHub to the official hardenedBSD radicle repository.
 
 ## v2.3.0
 
