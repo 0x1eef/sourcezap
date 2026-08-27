@@ -29,14 +29,14 @@ git URL. The same workflow can manage the
 
 ## Install
 
-#### Package
+#### pkg(8)
 
 sourcezap is available
 [from the HardenedBSD ports tree](https://git.hardenedBSD.org/hardenedBSD/ports/-/tree/hardenedBSD/main/hardenedBSD/sourcezap).
 <br>
-`pkg install sourcezap` should work too, but expect slower updates.
+`pkg install sourcezap` works too, but expect slower updates.
 
-#### Source
+#### git(1)
 
 The first step is to clone the repository. <br>
 Afterwards sourcezap can be installed (and deinstalled) through make:
