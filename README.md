@@ -12,7 +12,7 @@
 
 > [4.4BSD](https://4.4bsd.dev) project.
 
-sourcezap manages a local copy of a BSD source tree in a way that is
+sourcezap manages a local copy of the BSD source tree in a way that is
 efficient, scalable, and secure. It provides consistent ownership and
 permissions for the source tree, keeps a clean separation between
 root-only operations and unprivileged operations, and offers a simple
