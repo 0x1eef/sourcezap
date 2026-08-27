@@ -56,7 +56,7 @@ Delegate to the `_sourcezap` user.
     # sourcezap install
     # sourcezap pull
 
-### Setup
+## Setup
 
 <details>
 <summary>First-time setup</summary>
@@ -102,7 +102,7 @@ service sourcezap start
 
 </details>
 
-### Commands
+## Commands
 
 All `sourcezap` commands can be run as root. The commands that touch
 the git source tree (`clone`, `pull`, and `sh`) are delegated to the
