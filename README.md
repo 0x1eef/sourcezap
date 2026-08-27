@@ -212,7 +212,7 @@ sourcezap status
 
 </details>
 
-### FreeBSD
+#### FreeBSD
 
 <details>
 <summary>Managing a different source tree</summary>
