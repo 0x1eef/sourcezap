@@ -52,6 +52,7 @@ make deinstall
 Run as root. <br>
 Delegate to the `_sourcezap` user.
 
+    # sourcezap setup # run once
     # sourcezap clone
     # sourcezap install
     # sourcezap pull
