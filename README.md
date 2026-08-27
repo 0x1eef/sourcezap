@@ -52,56 +52,19 @@ make deinstall
 Run as root. <br>
 Delegate to the `_sourcezap` user.
 
-    # sourcezap setup # run once
-    # sourcezap clone
-    # sourcezap install
-    # sourcezap pull
+    ##
+    # Run once
+    root@localhost# sysrc -f /boot/loader.conf mac_do_load="YES"
+    root@localhost# sysrc sourcezap_enable="YES"
+    root@localhost# kldload mac_do
+    root@localhost# sourcezap setup
+    root@localhost# service sourcezap start
 
-## Setup
-
-<details>
-<summary>First-time setup</summary>
-<br>
-
-The mac_do(4) policy must be loaded before sourcezap can use
-mdo(1). <br> Add it to `/boot/loader.conf` and reboot, or load it
-manually without a reboot:
-
-```sh
-##
-# Permanent
-sysrc -f /boot/loader.conf mac_do_load="YES"
-
-##
-# Temporary (no reboot)
-kldload mac_do
-```
-
-Then create the `_sourcezap` user and group:
-
-```sh
-sourcezap setup
-```
-
-Run `sourcezap teardown` later to reverse this step. Both commands
-require root.
-
-Add yourself to the `_sourcezap` group only if you want to run
-`clone`, `pull`, or `sh` without root. When those commands are run
-as root, sourcezap drops privileges to `_sourcezap` automatically:
-
-```sh
-pw groupmod _sourcezap -m <user>
-```
-
-Enable and start the rc.d service that applies the mac_do(4) rules:
-
-```sh
-sysrc sourcezap_enable="YES"
-service sourcezap start
-```
-
-</details>
+    ##
+    # Everyday usage
+    root@localhost # sourcezap clone
+    root@localhost # sourcezap install
+    root@localhost # sourcezap pull
 
 ## Commands
 
