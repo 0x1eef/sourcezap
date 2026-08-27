@@ -56,7 +56,7 @@ make deinstall
 <br>
 
 The mac_do(4) policy must be loaded before sourcezap can use
-mdo(1). Add it to `/boot/loader.conf` and reboot, or load it
+mdo(1). <br> Add it to `/boot/loader.conf` and reboot, or load it
 manually without a reboot:
 
 ```sh
