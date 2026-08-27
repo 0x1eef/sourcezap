@@ -49,7 +49,7 @@ make deinstall
 
 ## Quick start
 
-Run as root. <br>
+Run as root (or a member of the `_sourcezap` group) <br>
 Delegate to the `_sourcezap` user.
 
 ```sh
@@ -64,7 +64,7 @@ service sourcezap start
 
 ##
 # Everyday usage
-# As root
+# As root / member of _sourcezap group
 # All commands delegated to _sourcezap user
 sourcezap clone
 sourcezap install
@@ -72,7 +72,7 @@ sourcezap pull
 
 ##
 # Drop into a shell
-# As root
+# As root / member of the _sourcezap group
 # Run as the _sourcezap user
 sourcezap sh
 ```
