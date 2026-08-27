@@ -33,8 +33,8 @@ git URL. The same workflow can manage the
 
 `pkg install sourcezap` works on HardenedBSD.
 <br>
-sourcezap is also available
-[from the HardenedBSD ports tree](https://git.hardenedBSD.org/hardenedBSD/ports/-/tree/hardenedBSD/main/hardenedBSD/sourcezap).
+sourcezap is also available from
+[the HardenedBSD ports tree](https://git.hardenedBSD.org/hardenedBSD/ports/-/tree/hardenedBSD/main/hardenedBSD/sourcezap).
 
 #### git(1)
 
