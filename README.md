@@ -62,12 +62,17 @@ Delegate to the `_sourcezap` user.
 
     ##
     # Everyday usage
+    # All commands run as _sourcezap
     root@localhost# sourcezap clone
     root@localhost# sourcezap install
     root@localhost# sourcezap pull
 
+    ##
+    # Drop into a shell
+    # Run as the _sourcezap user
+    root@localhost# sourcezap sh
 
-## Configuration
+## Tunables
 
 <details>
 <summary>SOURCEZAP_CLONEURL</summary>
