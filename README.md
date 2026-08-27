@@ -66,152 +66,6 @@ Delegate to the `_sourcezap` user.
     root@localhost # sourcezap install
     root@localhost # sourcezap pull
 
-## Commands
-
-All `sourcezap` commands can be run as root. The commands that touch
-the git source tree (`clone`, `pull`, and `sh`) are delegated to the
-`_sourcezap` user through
-[mdo(1)](https://man.freebsd.org/cgi/man.cgi?query=mdo&sektion=1), so
-root drops privileges before running anything inside
-`/home/_sourcezap/src/`. Members of the `_sourcezap` group can run
-the same delegated commands without root. Everything else is root-only,
-except `status`, which any user can run.
-
-#### Delegated
-
-<details>
-<summary>clone</summary>
-<br>
-
-Clone the source tree into `/home/_sourcezap/src/` as the `_sourcezap`
-user. The repository URL comes from `SOURCEZAP_CLONEURL`, which
-defaults to the official HardenedBSD radicle repository.
-
-```sh
-sourcezap clone
-```
-
-</details>
-
-<details>
-<summary>pull</summary>
-<br>
-
-Pull updates into `/home/_sourcezap/src/` as the `_sourcezap` user.
-The current branch is pulled from its upstream remote without
-rebasing.
-
-```sh
-sourcezap pull
-```
-
-</details>
-
-<details>
-<summary>sh</summary>
-<br>
-
-Run `/bin/sh` inside `/home/_sourcezap/src/` as the `_sourcezap` user.
-Use this instead of editing or running git commands in the source tree
-as root.
-
-```sh
-sourcezap sh
-```
-
-</details>
-
-#### Root-only
-
-<details>
-<summary>install</summary>
-<br>
-
-Install `/home/_sourcezap/src/` into `/usr/src/` with rsync. The
-install is skipped when `/usr/src/` already matches the current
-source commit; pass `-f` to force it.
-
-```sh
-sourcezap install
-sourcezap install -f
-```
-
-</details>
-
-<details>
-<summary>rm</summary>
-<br>
-
-Interactively remove the contents of `/usr/src/` and/or
-`/home/_sourcezap/src/`. This command requires root.
-
-```sh
-sourcezap rm
-```
-
-</details>
-
-<details>
-<summary>apply / unapply</summary>
-<br>
-
-Apply or remove the sourcezap
-[mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4)
-rules. Both commands require root.
-
-```sh
-sourcezap apply
-sourcezap unapply
-```
-
-</details>
-
-#### Anyone
-
-<details>
-<summary>status</summary>
-<br>
-
-Show whether the sourcezap
-[mac_do(4)](https://man.freebsd.org/cgi/man.cgi?query=mac_do&sektion=4)
-rules are applied. This command can be run by any user.
-
-```sh
-sourcezap status
-```
-
-</details>
-
-#### FreeBSD
-
-<details>
-<summary>Managing a different source tree</summary>
-<br>
-
-sourcezap is not limited to HardenedBSD. Set `SOURCEZAP_CLONEURL` to
-any git repository before running `sourcezap clone`, and the same
-clone, pull, and install workflow applies. Run the commands as root:
-`clone` and `pull` drop privileges to `_sourcezap`, while `install`
-stays root-only. For example, to manage the FreeBSD source tree:
-
-```sh
-export SOURCEZAP_CLONEURL=https://git.FreeBSD.org/src.git
-sourcezap clone
-sourcezap pull
-sourcezap install
-```
-
-The GitHub mirror works too:
-
-```sh
-export SOURCEZAP_CLONEURL=https://github.com/freebsd/freebsd-src.git
-sourcezap clone
-```
-
-When the HardenedBSD-specific branch is not present in the configured
-repository, sourcezap falls back to the repository's default branch.
-
-</details>
 
 ## Configuration
 
@@ -278,6 +132,35 @@ rules:
 sysrc sourcezap_enable="YES"
 service sourcezap start
 ```
+
+</details>
+
+<details>
+<summary>Managing a different source tree</summary>
+<br>
+
+sourcezap is not limited to HardenedBSD. Set `SOURCEZAP_CLONEURL` to
+any git repository before running `sourcezap clone`, and the same
+clone, pull, and install workflow applies. Run the commands as root:
+`clone` and `pull` drop privileges to `_sourcezap`, while `install`
+stays root-only. For example, to manage the FreeBSD source tree:
+
+```sh
+export SOURCEZAP_CLONEURL=https://git.FreeBSD.org/src.git
+sourcezap clone
+sourcezap pull
+sourcezap install
+```
+
+The GitHub mirror works too:
+
+```sh
+export SOURCEZAP_CLONEURL=https://github.com/freebsd/freebsd-src.git
+sourcezap clone
+```
+
+When the HardenedBSD-specific branch is not present in the configured
+repository, sourcezap falls back to the repository's default branch.
 
 </details>
 
