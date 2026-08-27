@@ -52,25 +52,30 @@ make deinstall
 Run as root. <br>
 Delegate to the `_sourcezap` user.
 
-    ##
-    # Run once
-    root@localhost# sysrc -f /boot/loader.conf mac_do_load="YES"
-    root@localhost# sysrc sourcezap_enable="YES"
-    root@localhost# kldload mac_do
-    root@localhost# sourcezap setup
-    root@localhost# service sourcezap start
+```sh
+##
+# Run once
+# As root
+sysrc -f /boot/loader.conf mac_do_load="YES"
+sysrc sourcezap_enable="YES"
+kldload mac_do
+sourcezap setup
+service sourcezap start
 
-    ##
-    # Everyday usage
-    # All commands run as _sourcezap
-    root@localhost# sourcezap clone
-    root@localhost# sourcezap install
-    root@localhost# sourcezap pull
+##
+# Everyday usage
+# As root
+# All commands delegated to _sourcezap user
+sourcezap clone
+sourcezap install
+sourcezap pull
 
-    ##
-    # Drop into a shell
-    # Run as the _sourcezap user
-    root@localhost# sourcezap sh
+##
+# Drop into a shell
+# As root
+# Run as the _sourcezap user
+sourcezap sh
+```
 
 ## Tunables
 
