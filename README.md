@@ -107,7 +107,7 @@ root drops privileges before running anything inside
 the same delegated commands without root. Everything else is root-only,
 except `status`, which any user can run.
 
-#### Delegated to `_sourcezap`
+#### Delegated
 
 <details>
 <summary>clone</summary>
