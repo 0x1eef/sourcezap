@@ -49,7 +49,7 @@ make deinstall
 
 ## Quick start
 
-Run as root (or a member of the `_sourcezap` group) <br>
+Run as root, or a member of the `_sourcezap` group). <br>
 Delegate to the `_sourcezap` user.
 
 ```sh
