@@ -42,7 +42,7 @@ The first step is to clone the repository. <br>
 Afterwards sourcezap can be installed (and deinstalled) through make:
 
 ```sh
-git clone https://github.com/0x1eef/sourcezap
+git clone https://github.com/4-4BSD/sourcezap
 cd sourcezap
 make install
 make deinstall
