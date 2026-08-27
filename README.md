@@ -20,10 +20,9 @@ clone, pull, and install workflow.
 
 Every `sourcezap` command can be run as root. For the commands that
 touch the git source tree, sourcezap drops privileges to the dedicated
-`_sourcezap` user, so git never runs with elevated privileges.
-
-The default source tree is HardenedBSD, but sourcezap works with any
-git URL. The same workflow can manage the
+`_sourcezap` user, so git never runs with elevated privileges. The default
+source tree is HardenedBSD, but sourcezap works with any git URL. The same
+workflow can manage the
 [FreeBSD source tree](https://git.FreeBSD.org/src.git) by setting
 `SOURCEZAP_CLONEURL`.
 
