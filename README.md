@@ -62,9 +62,9 @@ Delegate to the `_sourcezap` user.
 
     ##
     # Everyday usage
-    root@localhost # sourcezap clone
-    root@localhost # sourcezap install
-    root@localhost # sourcezap pull
+    root@localhost# sourcezap clone
+    root@localhost# sourcezap install
+    root@localhost# sourcezap pull
 
 
 ## Configuration
